@@ -16,65 +16,65 @@ from .decorators import allowed_group
 from .thread import ProductEnquiryThread, EnquiryThread
 
 
-# def add_product_database():
-#     path = (r'C:\Users\PARTH\Desktop\Grofusion\static\main\xlsx\grofusion.xlsx')
-#     workbook = openpyxl.load_workbook(path)
+def add_product_database():
+    path = (r'C:\Users\PARTH\Desktop\Grofusion\static\main\xlsx\grofusion.xlsx')
+    workbook = openpyxl.load_workbook(path)
 
-    # worksheet = workbook['main category']
-    # col = worksheet.max_row
-    # for i in range(1, col+1):
-    #     value = worksheet.cell(row=i, column=1).value
-    #     name = worksheet.cell(row=i, column=2).value
-    #     name = name.replace(' ', '')
-    #     name = name.replace(',', '')
-    #     name = name.replace('&', '')
-    #     name = name.replace('-', '')
-    #     name = name.replace('.', '')
-    #     name = name.replace("'", '')
-    #     name = name.replace('/', '')
-    #     name = name.lower()
-    #     MainCategory(name=name, value=value).save()
-    #     print(i)
+    worksheet = workbook['main category']
+    col = worksheet.max_row
+    for i in range(1, col+1):
+        value = worksheet.cell(row=i, column=1).value
+        name = worksheet.cell(row=i, column=2).value
+        name = name.replace(' ', '')
+        name = name.replace(',', '')
+        name = name.replace('&', '')
+        name = name.replace('-', '')
+        name = name.replace('.', '')
+        name = name.replace("'", '')
+        name = name.replace('/', '')
+        name = name.lower()
+        MainCategory(name=name, value=value).save()
+        print(i)
     
-    # worksheet = workbook['category']
-    # col = worksheet.max_row
-    # for i in range(1, col+1):
-    #     value = worksheet.cell(row=i, column=1).value
-    #     name = worksheet.cell(row=i, column=2).value
-    #     name = name.replace(' ', '')
-    #     name = name.replace(',', '')
-    #     name = name.replace('&', '')
-    #     name = name.replace('-', '')
-    #     name = name.replace('.', '')
-    #     name = name.replace("'", '')
-    #     name = name.replace('/', '')
-    #     name = name.lower()
-    #     Category(name=name, value=value).save()
-    #     print(i)
+    worksheet = workbook['category']
+    col = worksheet.max_row
+    for i in range(1, col+1):
+        value = worksheet.cell(row=i, column=1).value
+        name = worksheet.cell(row=i, column=2).value
+        name = name.replace(' ', '')
+        name = name.replace(',', '')
+        name = name.replace('&', '')
+        name = name.replace('-', '')
+        name = name.replace('.', '')
+        name = name.replace("'", '')
+        name = name.replace('/', '')
+        name = name.lower()
+        Category(name=name, value=value).save()
+        print(i)
     
-    # worksheet = workbook['sub category']
-    # col = worksheet.max_row
-    # for i in range(1, col+1):
-    #     value = worksheet.cell(row=i, column=1).value
-    #     name = worksheet.cell(row=i, column=2).value
-    #     name = name.replace(' ', '')
-    #     name = name.replace(',', '')
-    #     name = name.replace('&', '')
-    #     name = name.replace('-', '')
-    #     name = name.replace('.', '')
-    #     name = name.replace("'", '')
-    #     name = name.replace('/', '')
-    #     name = name.lower()
-    #     SubCategory(name=name, value=value).save()
-    #     print(i)
+    worksheet = workbook['sub category']
+    col = worksheet.max_row
+    for i in range(1, col+1):
+        value = worksheet.cell(row=i, column=1).value
+        name = worksheet.cell(row=i, column=2).value
+        name = name.replace(' ', '')
+        name = name.replace(',', '')
+        name = name.replace('&', '')
+        name = name.replace('-', '')
+        name = name.replace('.', '')
+        name = name.replace("'", '')
+        name = name.replace('/', '')
+        name = name.lower()
+        SubCategory(name=name, value=value).save()
+        print(i)
     
-    # worksheet = workbook['states']
-    # col = worksheet.max_row
-    # for i in range(1, col+1):
-    #     value = worksheet.cell(row=i, column=1).value
-    #     name = worksheet.cell(row=i, column=2).value
-    #     State(name=name, value=value).save()
-    #     print(i)
+    worksheet = workbook['states']
+    col = worksheet.max_row
+    for i in range(1, col+1):
+        value = worksheet.cell(row=i, column=1).value
+        name = worksheet.cell(row=i, column=2).value
+        State(name=name, value=value).save()
+        print(i)
 
 
 
@@ -82,7 +82,7 @@ from .thread import ProductEnquiryThread, EnquiryThread
 # Create your views here.
 
 def index(request):
-    # add_product_database()
+    add_product_database()
     # Category.objects.all().delete()
     # SubCategory.objects.all().delete()
     products = Product.objects.filter(status=True).order_by('-id')
