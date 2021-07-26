@@ -1,0 +1,599 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+
+<!--
+
+This is a starter template page. Use this page to start your new project from
+
+scratch. This page gets rid of all links and provides the needed markup only.
+
+-->
+
+<html>
+
+<head>
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+  <meta charset="utf-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Grofusion - Grow Your Business & Complete Business Directory | DASHBOARD</title>
+
+  
+
+  <!-- Tell the browser to be responsive to screen width -->
+
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  <!-- Bootstrap 3.3.6 -->
+
+  <link rel="stylesheet" href="{% static 'main/css/bootstrap.min.css' %}">
+
+
+
+  <!-- Morris charts -->
+  <link rel="stylesheet" href="{% static 'main/css/morris.css' %}">
+
+
+
+  <!-- Font Awesome -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <!-- Ionicons -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+  <!-- Theme style -->
+
+  <link rel="stylesheet" href="{% static 'main/css/AdminLTE.min.css' %}">
+
+  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+
+        page. However, you can choose any other skin. Make sure you
+
+        apply the skin class to the body tag so the changes take effect.
+
+  -->
+
+  <link rel="stylesheet" href="{% static 'main/css/skin-blue.min.css' %}">
+
+  
+
+  <style>
+
+.small-box>.inner {
+
+    padding: 10px;
+
+    height: 115px !important;
+
+}
+
+      
+
+  </style>
+
+
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+  <!--[if lt IE 9]>
+
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+  <![endif]-->
+
+</head>
+
+
+<!-- <body>
+  
+  <div class="alert alert-warning alert-dismissible fade show" role="alert" style="">
+    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+</body> -->
+
+<body class="hold-transition skin-blue sidebar-mini">
+
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible show" role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fa fa-times"></i></button>
+    </div>
+  {% endfor %}
+  
+
+
+<div class="wrapper">
+
+
+
+  <!-- Main Header -->
+
+
+
+<header class="main-header">
+
+
+
+    <!-- Logo -->
+
+    <a href="/" class="logo">
+
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+
+      <span class="logo-mini"><b></b></span>
+
+      <!-- logo for regular state and mobile devices -->
+
+      <span class="logo-lg">Grofusion - Grow Your Business & Complete Business Directory</span>
+
+    </a>
+
+
+
+    <!-- Header Navbar -->
+
+     <nav class="navbar navbar-static-top" role="navigation">
+
+  <!-- Sidebar toggle button-->
+
+  <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button"> <span class="sr-only">Toggle navigation</span> </a>
+
+  <!-- Navbar Right Menu -->
+
+  <div class="navbar-custom-menu">
+
+    <ul class="nav navbar-nav">
+
+      <li> <a href="/account/dashboard/update-profile/seller/"><i class="fa fa-gears"></i></a> </li>
+
+      <li> <a href="{% url 'logout' %}"><i class="fa fa-power-off"></i></a> </li>
+
+    </ul>
+
+  </div>
+
+</nav>
+
+
+  </header>
+
+
+
+  <!-- Left side column. contains the logo and sidebar -->
+
+  <aside class="main-sidebar">
+
+
+
+    <!-- sidebar: style can be found in sidebar.less -->
+
+
+
+    
+<section class="sidebar">
+
+  <!-- Sidebar user panel (optional) -->
+
+  <div class="user-panel">
+
+    <div class="pull-left image"><img src="{% static 'main/images/logo2.png' %}" class="img-circle" alt="User Image"></div>
+
+    <div class="pull-left info" style="padding-top:16px;">
+
+      <p>
+
+        <a href="#">{{user.name}}</a>
+
+      </p>
+
+      <!-- Status -->
+
+      <span>&nbsp;</span> </div>
+
+  </div>
+
+  <!-- Sidebar Menu -->
+
+  <ul class="sidebar-menu">
+
+    
+    <li class="treeview"><a href="{% url 'update-profile-seller' %}"><i class="fa fa-list-alt" aria-hidden="true"></i><span>Update Profile</span></a></li>
+    <li class="treeview"><a href="{% url 'upload-documents-seller' %}"><i class="fa fa-list-alt" aria-hidden="true"></i><span>Upload Documents</span></a></li>
+    <li class="treeview"> <a href="#"> <i class="fa fa-bookmark-o"></i> <span>Color</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
+      <ul class="treeview-menu">
+        <li><a href="#"><i class="fa fa-circle-o"></i> Add Color</a></li>
+        <li><a href="#"><i class="fa fa-circle-o"></i> View Color</a></li>
+      </ul>
+    </li>
+    <li class="treeview"> <a href="#"> <i class="fa fa-bookmark-o"></i> <span>Size</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
+      <ul class="treeview-menu">
+        <li><a href="#"><i class="fa fa-circle-o"></i> Add Size</a></li>
+        <li><a href="#"><i class="fa fa-circle-o"></i> View Size</a></li>
+      </ul>
+    </li>
+    <li class="treeview"> <a href="#"> <i class="fa fa-bookmark-o"></i> <span>Weight</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
+      <ul class="treeview-menu">
+        <li><a href="#"><i class="fa fa-circle-o"></i> Add Weight</a></li>
+        <li><a href="#"><i class="fa fa-circle-o"></i> View Weight</a></li>
+      </ul>
+    </li>
+    <li class="treeview"><a href="{% url 'product-listing' %}"><i class="fa fa-list-alt" aria-hidden="true"></i><span>Product Listings</span></a></li>
+
+    
+
+    </ul>
+
+  <!-- /.sidebar-menu -->
+
+</section>
+
+
+
+
+    <!-- /.sidebar -->
+
+  </aside>
+
+
+
+  <!-- Content Wrapper. Contains page content -->
+
+  <div class="content-wrapper">
+
+    <!-- Content Header (Page header) -->
+
+    <section class="content-header">
+
+      <h1><i class="glyphicon glyphicon-dashboard"></i>&nbsp;&nbsp; Dashboard</h1>
+
+      <ol class="breadcrumb">
+
+        <li><a href="/"><i class="fa fa-dashboard"></i>Home</a></li>
+      </ol>
+
+    </section>
+
+
+
+    <!-- Main content -->
+
+    <section class="content">
+
+      <div class="row">
+
+
+		 <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="info-box">
+
+            <div class="info-box-content">
+              <h2>Welcome to Grofusion - Grow Your Business & Complete Business Directory</h2>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="fa fa-shopping-basket"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Total Sales</span>
+              <span class="info-box-number">Rs- </span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-red"><i class="fa fa-shopping-basket"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Sale This Month</span>
+              <span class="info-box-number">Rs-</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+		  <a href="#">
+            <span class="info-box-icon bg-aqua"><i class="fa fa-envelope-o"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Messages</span>
+              <span class="info-box-number"></span>
+            </div>
+		  </a>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+		  <a href="#">
+            <span class="info-box-icon bg-green"><i class="ion ion-person-add"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Total Users</span>
+              <span class="info-box-number"></span>
+            </div>
+			</a>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+     
+        <div class="col-lg-3 col-xs-6">
+		
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+		  
+            <div class="inner">
+              <h3></h3>
+
+              <p><a href="#" style="color:#fff;">New Orders</a></p>
+            </div>
+			
+            <div class="icon">
+              <i class="fa fa-shopping-cart"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+            </a>
+          </div>
+		
+        </div>
+        <!-- ./col -->
+
+        <div class="col-lg-3 col-xs-6">
+		
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3></h3>
+
+              <p><a href="#" style="color:#fff;">Approved Orders</a></p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-shopping-cart"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+
+            </a>
+          </div>
+		
+        </div>
+        <!-- ./col -->
+
+        <div class="col-lg-3 col-xs-6">
+		  <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3></h3>
+
+              <p><a href="#" style="color:#fff;">Total Complete Orders</a></p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-shopping-cart"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+            </a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3></h3>
+
+              <p>Total Reject Orders</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-shopping-cart"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+            </a>
+          </div>
+        </div>
+        
+</div>
+
+
+    </section>
+
+    <!-- /.content -->
+
+
+
+
+
+
+
+  </div>
+
+  <!-- /.content-wrapper -->
+
+
+
+  <!-- Main Footer -->
+
+  <footer class="main-footer">
+
+    <!-- To the right -->
+
+    <div class="pull-right hidden-xs">
+
+
+
+    </div>
+
+    <!-- Default to the left -->
+
+    <strong><strong>Copyright &copy; 2020 <a href="javascript:;">"Grofusion - Grow Your Business & Complete Business Directory"</a>.</strong> All rights reserved.</strong>
+
+  </footer>
+
+  <div class="control-sidebar-bg"></div>
+
+</div>
+
+<!-- ./wrapper -->
+
+
+
+<!-- REQUIRED JS SCRIPTS -->
+
+
+
+<!-- jQuery 2.2.3 -->
+
+<script src="/static/main/jquery-2.2.3.min.js"></script>
+
+<!-- Bootstrap 3.3.6 -->
+
+<script src="/static/main/js/bootstrap.min.js"></script>
+
+<!-- AdminLTE App -->
+
+<script src="/static/main/js/app.min.js"></script>
+
+
+
+<!-- Morris.js charts -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+
+
+
+<script src="plugins/morris/morris.min.js"></script>
+
+
+
+<script>
+
+  $(function () {
+
+    "use strict";
+
+
+
+    // LINE CHART
+
+    var line = new Morris.Line({
+
+      element: 'line-chart',
+
+      resize: true,
+
+      data: [
+
+        {y: '2011 Q1', item1: 2666},
+
+        {y: '2011 Q2', item1: 2778},
+
+        {y: '2011 Q3', item1: 4912},
+
+        {y: '2011 Q4', item1: 3767},
+
+        {y: '2012 Q1', item1: 6810},
+
+        {y: '2012 Q2', item1: 5670},
+
+        {y: '2012 Q3', item1: 4820},
+
+        {y: '2012 Q4', item1: 15073},
+
+        {y: '2013 Q1', item1: 10687},
+
+        {y: '2013 Q2', item1: 8432}
+
+      ],
+
+      xkey: 'y',
+
+      ykeys: ['item1'],
+
+      labels: ['Item 1'],
+
+      lineColors: ['#3c8dbc'],
+
+      hideHover: 'auto'
+
+    });
+
+  });
+
+</script>
+
+
+
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+
+     Both of these plugins are recommended to enhance the
+
+     user experience. Slimscroll is required when using the
+
+     fixed layout. -->
+
+	 
+
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script></body>
+
+</html>
+

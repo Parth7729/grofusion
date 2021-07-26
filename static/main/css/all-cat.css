@@ -1,0 +1,49 @@
+@charset "utf-8";
+/* CSS Document */
+.fc-box {
+    padding: 15px 35px 10px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+.cat-cont {
+    margin-bottom: 20px;
+}
+.cat-head {
+    font-size: 18px;
+    font-weight: 600;
+    color: #344e69;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e4e4e4;
+    margin-bottom: 15px;
+}
+.cat-head a {
+    font-size: 18px;
+    font-weight: 600;
+    color: #344e69;
+}
+.category {
+    display: inline-block;
+    vertical-align: top;
+    width: 16%;
+    padding-right: 15px;
+    margin-bottom: 30px;
+}
+.subcat-head, .subcat-head a {
+    font-size: 16px;
+    color: #ff6701;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.subcat-head, .subcat-head a {
+    font-size: 16px;
+    color: #ff6701;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.category ul li {
+    margin-bottom: 4px;
+}
+.category ul li a {
+    font-size: 14px; color: #535353; text-decoration:none;
+}
+.category ul li a:hover{color: #ff6701;}

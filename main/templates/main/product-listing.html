@@ -1,0 +1,195 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>All | Product Listings list</title>
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<link rel="stylesheet" href="{% static 'main/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" href="{% static 'main/css/dataTables.bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/AdminLTE.min.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/_all-skins.min.css' %}">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible show" role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fa fa-times"></i></button>
+    </div>
+  {% endfor %}
+  
+<div class="wrapper">
+  <header class="main-header">
+    <a href="/" class="logo">
+    <span class="logo-mini"><b></b></span>
+    <span class="logo-lg">
+    Grofusion - Grow Your Business & Complete Business Directory    </span> </a>
+    <nav class="navbar navbar-static-top" role="navigation">
+
+  <!-- Sidebar toggle button-->
+
+  <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button"> <span class="sr-only">Toggle navigation</span> </a>
+
+  <!-- Navbar Right Menu -->
+
+  <div class="navbar-custom-menu">
+
+    <ul class="nav navbar-nav">
+
+      <li> <a href="/account/dashboard/update-profile/seller/"><i class="fa fa-gears"></i></a> </li>
+
+      <li> <a href="{% url 'logout' %}"><i class="fa fa-power-off"></i></a> </li>
+
+    </ul>
+
+  </div>
+
+</nav>  </header>
+  <aside class="main-sidebar">
+    
+<section class="sidebar">
+
+  <!-- Sidebar user panel (optional) -->
+
+  <div class="user-panel">
+
+    <div class="pull-left image"><img src="{% static 'main/images/logo2.png' %}" class="img-circle" alt="User Image"></div>
+
+    <div class="pull-left info" style="padding-top:16px;">
+
+      <p>
+
+        <a href="/dashboard/">{{user.name}}</a>
+
+      </p>
+
+      <!-- Status -->
+
+      <span>&nbsp;</span> </div>
+
+  </div>
+
+  <!-- Sidebar Menu -->
+
+  <ul class="sidebar-menu">
+
+    
+    <li class="treeview"><a href="/account/dashboard/update-profile/seller/"><i class="fa fa-list-alt" aria-hidden="true"></i><span>Update Profile</span></a></li>
+    <li class="treeview"><a href="/account/dashboard/upload-documents/seller/"><i class="fa fa-list-alt" aria-hidden="true"></i><span>Upload Documents</span></a></li>
+    <li class="treeview"> <a href="#"> <i class="fa fa-bookmark-o"></i> <span>Color</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
+      <ul class="treeview-menu">
+        <li><a href="#"><i class="fa fa-circle-o"></i> Add Color</a></li>
+        <li><a href="#"><i class="fa fa-circle-o"></i> View Color</a></li>
+      </ul>
+    </li>
+    <li class="treeview"> <a href="#"> <i class="fa fa-bookmark-o"></i> <span>Size</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
+      <ul class="treeview-menu">
+        <li><a href="#"><i class="fa fa-circle-o"></i> Add Size</a></li>
+        <li><a href="#"><i class="fa fa-circle-o"></i> View Size</a></li>
+      </ul>
+    </li>
+    <li class="treeview"> <a href="#"> <i class="fa fa-bookmark-o"></i> <span>Weight</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
+      <ul class="treeview-menu">
+        <li><a href="#"><i class="fa fa-circle-o"></i> Add Weight</a></li>
+        <li><a href="#"><i class="fa fa-circle-o"></i> View Weight</a></li>
+      </ul>
+    </li>
+    <li class="treeview"><a href="/product-listing/"><i class="fa fa-list-alt" aria-hidden="true"></i><span>Product Listings</span></a></li>
+
+    
+
+    </ul>
+
+  <!-- /.sidebar-menu -->
+
+</section>
+
+  </aside>
+  <div class="content-wrapper">
+    <section class="content-header">
+      <h1>Product Listings</h1>
+      <ol class="breadcrumb">      
+        <li><a href="{% url 'add-product' %}" title="ADD NEW"><i class="fa fa-plus fa-3x" aria-hidden="true"></i></a></li>
+      </ol>
+    </section>
+    <section class="content">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Product Listings List</h3>
+        </div>
+                <div class="box-body table-responsive">
+          <table id="example1" width="100%" class="table table-bordered table-striped">
+            <thead>
+              <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="S No.: activate to sort column descending" style="width: 103px;">S No.</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Product Name: activate to sort column ascending" style="width: 216px;">Product Name</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Stock: activate to sort column ascending" style="width: 139px;">Stock</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Date: activate to sort column ascending" style="width: 124px;">Date</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 118px;">Status</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" style="width: 130px;">Actions</th></tr>
+            </thead>
+            <tbody>
+              {% if products %}
+              {% for product in products %}
+              <tr role="row" class="odd">
+                <td class="center sorting_1"></td>
+                <td class="center">{{ product.product_name }}</td>
+                {% if product.in_stock %}
+                <td class="center">In Stock</td>
+                {% else %}
+                <td class="center">Out of Stock</td>
+                {% endif %}
+                <td class="center">{{ product.date_added }}</td>                        
+                <td class="center"><a href="{% url 'status-change' product.id %}">
+
+                  {% if product.status %}
+                  <i class="fa fa-eye center" style="color: black; font-size: 18px;" title="ACTIVE"></i>
+                  {% else %}
+                  <i class="fa fa-eye-slash center" style="color: black; font-size: 18px;" title="INACTIVE"></i>
+                  {% endif %}
+
+                </a></td>
+                <td class="center"><span style="float: left;"> 
+                <a href="{% url 'update-product' product.id %}" title="EDIT"><i class="fa fa-edit" style="color: black; font-size: 18px; margin-right: 15px;"></i></a> 
+                <a onclick="return confirm('Sure you want to delete this record.');" href="{% url 'delete-product' product.id %}" title="DELETE"><i class="fa fa-trash" style="color: black; font-size: 18px; margin-right: 15px;"></i></a> </span> </td>
+              </tr>
+              {% endfor %}
+              {% endif %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer class="main-footer"><strong><strong>Copyright &copy; 2020 <a href="javascript:;">"Grofusion - Grow Your Business & Complete Business Directory"</a>.</strong> All rights reserved.</strong> </footer> 
+</div>
+<script src="/static/main/js/jquery-2.2.3.min.js"></script>
+<script src="/static/main/js/bootstrap.min.js"></script>
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="plugins/fastclick/fastclick.js"></script>
+<script src="/static/main/js/app.min.js"></script>
+<script src="/static/main/js/demo.js"></script>
+<script>
+                                        $(function () {
+                                            $("#example1").DataTable();
+                                            $('#example2').DataTable({
+                                                "paging": true,
+                                                "lengthChange": false,
+                                                "searching": false,
+                                                "ordering": true,
+                                                "info": true,
+                                                "autoWidth": false
+                                            });
+                                        });
+        </script>
+<script>
+  tags = document.getElementsByClassName('center sorting_1');
+  count = tags.length
+  for(i=0; i<count; i++){
+    tags[i].innerHTML = i+1;
+  }
+</script>
+
+</body>
+</html>

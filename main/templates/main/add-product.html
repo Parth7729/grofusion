@@ -1,0 +1,2544 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+      Grofusion - Grow Your Business & Complete Business Directory | Product
+      Listings
+    </title>
+    <meta
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+      name="viewport"
+    />
+    <link rel="stylesheet" href="{% static 'main/css/bootstrap.min.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'main/css/AdminLTE.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'main/css/skin-blue.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'main/css/datepicker3.css' %}" />
+    <link
+      href="{% static 'main/css/jquery.multiselect.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+      <header class="main-header">
+        <a href="/" class="logo">
+          <span class="logo-mini"><b></b></span>
+          <span class="logo-lg"
+            >Grofusion - Grow Your Business & Complete Business Directory</span
+          >
+        </a>
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- Sidebar toggle button-->
+
+          <a
+            href="#"
+            class="sidebar-toggle"
+            data-toggle="offcanvas"
+            role="button"
+          >
+            <span class="sr-only">Toggle navigation</span>
+          </a>
+
+          <!-- Navbar Right Menu -->
+
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <li>
+                <a href="/account/dashboard/update-profile/seller/"><i class="fa fa-gears"></i></a>
+              </li>
+
+              <li>
+                <a href="{% url 'logout' %}"><i class="fa fa-power-off"></i></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <aside class="main-sidebar">
+        <section class="sidebar">
+          <!-- Sidebar user panel (optional) -->
+
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img
+                src="{% static 'main/images/logo2.png' %}"
+                class="img-circle"
+                alt="User Image"
+              />
+            </div>
+
+            <div class="pull-left info" style="padding-top: 16px">
+              <p>
+                <a href="/dashboard/">{{user.name}}</a>
+              </p>
+
+              <!-- Status -->
+
+              <span>&nbsp;</span>
+            </div>
+          </div>
+
+          <!-- Sidebar Menu -->
+
+          <ul class="sidebar-menu">
+            <li class="treeview">
+              <a href="/account/dashboard/update-profile/seller/"
+                ><i class="fa fa-list-alt" aria-hidden="true"></i
+                ><span>Update Profile</span></a
+              >
+            </li>
+            <li class="treeview">
+              <a href="/account/dashboard/upload-documents/seller/"
+                ><i class="fa fa-list-alt" aria-hidden="true"></i
+                ><span>Upload Documents</span></a
+              >
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-bookmark-o"></i> <span>Color</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li>
+                  <a href="#"
+                    ><i class="fa fa-circle-o"></i> Add Color</a
+                  >
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fa fa-circle-o"></i> View Color</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-bookmark-o"></i> <span>Size</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li>
+                  <a href="#"
+                    ><i class="fa fa-circle-o"></i> Add Size</a
+                  >
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fa fa-circle-o"></i> View Size</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-bookmark-o"></i> <span>Weight</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li>
+                  <a href="#"
+                    ><i class="fa fa-circle-o"></i> Add Weight</a
+                  >
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fa fa-circle-o"></i> View Weight</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="/product-listing/"
+                ><i class="fa fa-list-alt" aria-hidden="true"></i
+                ><span>Product Listings</span></a
+              >
+            </li>
+          </ul>
+
+          <!-- /.sidebar-menu -->
+        </section>
+      </aside>
+      <div class="content-wrapper">
+        <section class="content-header">
+          <h1>Add Product Listings</h1>
+          <ol class="breadcrumb">
+            <li>
+              <a href="/"><i class="fa fa-dashboard"></i>Home</a
+              ><a href="javascript:;"
+                ><li class="active">Add Product Listings</li></a
+              >
+            </li>
+          </ol>
+        </section>
+        <section class="content">
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title">Add Product Listings</h3>
+            </div>
+            <div class="box-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="box box-primary">
+                    <form
+                      role="form"
+                      name="stform"
+                      id="stform"
+                      action="{% url 'adding-product' %}"
+                      method="post"
+                      enctype="multipart/form-data"
+                    >
+                      {% csrf_token %}
+                      <div class="form-group">
+                        <label>Main Category Name</label>
+                        <select
+                          class="form-control"
+                          name="main_category_id"
+                          onChange="getcatAndSubcat(this.value)"
+                          required
+                        >
+                          <option value="">Select Main Category</option>
+                          <option value="31">Cell Phones & Accessories</option>
+                          <option value="30">Food & Beverage</option>
+                          <option value="29">Fashion Accessories</option>
+                          <option value="28">Agriculture</option>
+                          <option value="27">Machinery</option>
+                          <option value="26">Automobiles & Motorcycles</option>
+                          <option value="25">Building & Construction</option>
+                          <option value="24">Chemicals</option>
+                          <option value="23">Rubber & Plastics</option>
+                          <option value="22">Minerals & Metallurgy</option>
+                          <option value="21">Sports & Entertainment</option>
+                          <option value="20">Office & School Supplies</option>
+                          <option value="19">
+                            Electrical Equipment & Supplies
+                          </option>
+                          <option value="18">Home Appliances</option>
+                          <option value="17">Furniture</option>
+                          <option value="16">Apparel</option>
+                          <option value="14">Beauty & Personal Care</option>
+                          <option value="13">Packaging & Printing</option>
+                          <option value="10">Cameras & Photo</option>
+                          <option value="9">Home, Lights & Construction</option>
+                          <option value="8">Jewelry & Watches</option>
+                          <option value="7">Computers & Networking</option>
+                          <option value="5">Fashion</option>
+                          <option value="4">Health & Medical</option>
+                          <option value="3">Smartphone & Tablets</option>
+                          <option value="2">Gifts, Sports & Toys</option>
+                          <option value="1">Electronics</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label>Category Name</label>
+                        <select
+                          class="form-control"
+                          name="category_id"
+                          id="category_id"
+                        >
+                          <option value="">Select Category</option>
+                          <option value="308">For Girls</option>
+                          <option value="307">For Boys</option>
+                          <option value="306">For Baby</option>
+                          <option value="305">For Women</option>
+                          <option value="304">For Men</option>
+                          <option value="303">Brands Phones</option>
+                          <option value="302">Cell Phone Chargers</option>
+                          <option value="301">Cell Phone Parts</option>
+                          <option value="300">Wearable Technology</option>
+                          <option value="299">Cell Phone Earphones</option>
+                          <option value="298">Type-C Cbles</option>
+                          <option value="297">Cell Phones Accessories</option>
+                          <option value="296">Makeup Tools</option>
+                          <option value="295">Other Beauty & Personal Care Products</option>
+                          <option value="294">Skin Care Tool</option>
+                          <option value="293">Men Care</option>
+                          <option value="292">Baby Care</option>
+                          <option value="291">Feminine Hygiene</option>
+                          <option value="290">Breast Care</option>
+                          <option value="289">Sanitary Paper</option>
+                          <option value="288">Hair Extensions & Wigs</option>
+                          <option value="287">Hair Care</option>
+                          <option value="286">Oral Hygiene</option>
+                          <option value="285">Shaving & Hair Removal</option>
+                          <option value="284">Body Art</option>
+                          <option value="283">Tablets</option>
+                          <option value="282">Smartphones</option>
+                          <option value="281">Food Packaging</option>
+                          <option value="280">Gift Packaging</option>
+                          <option value="279">Pharmaceutical Packaging</option>
+                          <option value="278">Apparel Packaging</option>
+                          <option value="277">Transport Packaging</option>
+                          <option value="276">Chemical Packaging</option>
+                          <option value="275">Plastic Packaging</option>
+                          <option value="274">Agricultural Packaging</option>
+                          <option value="272">Printing Materials</option>
+                          <option value="271">Printing Services</option>
+                          <option value="270">Cosmetics Packaging</option>
+                          <option value="269">Tripods, Monopods & Accessories</option>
+                          <option value="268">Stabilizers</option>
+                          <option value="267">Sports & Action Video Cameras</option>
+                          <option value="266">Professional Video Equipment</option>
+                          <option value="265">Lighting & Studio Equipment</option>
+                          <option value="264">Lenses & Filter</option>
+                          <option value="263">Flashes & Flash Accessories</option>
+                          <option value="262">Film Photography</option>
+                          <option value="261">Drones & Accessories</option>
+                          <option value="260">Digital Photo Frames</option>
+                          <option value="259">Digital Cameras</option>
+                          <option value="258">Camera & Accessories</option>
+                          <option value="257">Camcorders</option>
+                          <option value="256">Binoculars & Telescopes</option>
+                          <option value="255">Computer Componets</option>
+                          <option value="254">Network Hardware & Parts</option>
+                          <option value="253">Computers</option>
+                          <option value="252">Slimming Food</option>
+                          <option value="251">Vegetable Products</option>
+                          <option value="250">Fruit Products</option>
+                          <option value="249">Drinking Water</option>
+                          <option value="248">Confectionery</option>
+                          <option value="247">Coffee</option>
+                          <option value="246">Honey & Honey Products</option>
+                          <option value="245">Alcoholic Beverages</option>
+                          <option value="244">Canned Food</option>
+                          <option value="243">Baby Food</option>
+                          <option value="242">Soft Drinks</option>
+                          <option value="241">Food Ingredients</option>
+                          <option value="240">Tea</option>
+                          <option value="239">Snacks</option>
+                          <option value="238">Grain Products</option>
+                          <option value="237">Dairy Products</option>
+                          <option value="236">Instant Food</option>
+                          <option value="235">Instant Food</option>
+                          <option value="234">Baked Goods</option>
+                          <option value="233">Meat & Poultry</option>
+                          <option value="232">Seasonings & Condiments</option>
+                          <option value="231">Seafood</option>
+                          <option value="230">Neckwear</option>
+                          <option value="229">Belt Accessories</option>
+                          <option value="228">Headwear</option>
+                          <option value="227">Ties & Accessories</option>
+                          <option value="226">Gloves & Mittens</option>
+                          <option value="225">Belts</option>
+                          <option value="224">Farm Machinery & Equipment</option>
+                          <option value="223">Mushrooms & Truffles</option>
+                          <option value="222">Timber Raw Materials</option>
+                          <option value="221">Animal Products</option>
+                          <option value="220">Agricultural Equipment</option>
+                          <option value="219">Plant & Animal Oil</option>
+                          <option value="218">Ornamental Plants</option>
+                          <option value="217">Plant Seeds & Bulbs</option>
+                          <option value="216">Fertilizer</option>
+                          <option value="215">Feed</option>
+                          <option value="214">Grain</option>
+                          <option value="213">Beans</option>
+                          <option value="212">Nuts & Kernels</option>
+                          <option value="211">Fresh Vegetables</option>
+                          <option value="210">Fresh Fruit</option>
+                          <option value="209">Paper Production Machinery</option>
+                          <option value="208">Agriculture Machinery & Equipment</option>
+                          <option value="207">Energy & Mineral Equipment</option>
+                          <option value="206">Apparel & Textile Machinery</option>
+                          <option value="205">Pharmaceutical Machinery</option>
+                          <option value="204">Refrigeration & Heat Exchange Equipment</option>
+                          <option value="203">Refrigeration & Heat Exchange Equipment</option>
+                          <option value="202">Plastic & Rubber Machinery</option>
+                          <option value="201">Industry Laser Equipment</option>
+                          <option value="200">Home Product Making Machinery</option>
+                          <option value="199">General Industrial Equipment</option>
+                          <option value="198">Chemical Machinery & Equipment</option>
+                          <option value="197">Metal & Metallurgy Machinery</option>
+                          <option value="196">Engineering & Construction Machinery</option>
+                          <option value="195">Machine Tool Equipment</option>
+                          <option value="194">Printing Machine</option>
+                          <option value="193">Building Material Machinery</option>
+                          <option value="192">Food & Beverage Machinery</option>
+                          <option value="191">Woodworking Machinery</option>
+                          <option value="190">Packaging Machine</option>
+                          <option value="189">Automobiles</option>
+                          <option value="188">Car Care & Cleaning</option>
+                          <option value="187">Auto Chassis Parts</option>
+                          <option value="186">Universal Parts</option>
+                          <option value="185">Vehicle Equipment</option>
+                          <option value="184">Motorcycle Accessories</option>
+                          <option value="183">Vehicle Tools</option>
+                          <option value="182">Body Parts</option>
+                          <option value="181">Motorcycle Parts</option>
+                          <option value="180">Auto Engine</option>
+                          <option value="179">Auto Electrical System</option>
+                          <option value="178">Interior Accessories</option>
+                          <option value="177">Exterior Accessories</option>
+                          <option value="176">Auto Electronics</option>
+                          <option value="175">Stairs & Stair Parts</option>
+                          <option value="174">Quarry Stone & Slabs</option>
+                          <option value="173">Elevators & Elevator Parts</option>
+                          <option value="172">Doors & Windows</option>
+                          <option value="171">Ceilings</option>
+                          <option value="170">Tiles & Accessories</option>
+                          <option value="169">Soundproofing Materials</option>
+                          <option value="168">Kitchen</option>
+                          <option value="167">Heat Insulation Materials</option>
+                          <option value="166">Fireplaces,Stoves</option>
+                          <option value="165">Escalators & Escalator Parts</option>
+                          <option value="164">Waterproofing Materials</option>
+                          <option value="163">Plastic Building Materials</option>
+                          <option value="162">Faucets,Mixers & Taps</option>
+                          <option value="161">Curtain Walls & Accessories</option>
+                          <option value="160">Boards</option>
+                          <option value="159">Ladders & Scaffoldings</option>
+                          <option value="158">Fireproofing Materials</option>
+                          <option value="157">Stone Carvings And Sculptures</option>
+                          <option value="156">Landscaping Stone</option>
+                          <option value="155">Earthwork Products</option>
+                          <option value="154">Flooring & Accessories</option>
+                          <option value="153">Masonry Materials</option>
+                          <option value="152">Timber</option>
+                          <option value="151">Bathroom</option>
+                          <option value="150">Doors & Windows Accessories</option>
+                          <option value="149">Agrochemicals</option>
+                          <option value="148">Pigment & Dyestuff</option>
+                          <option value="147">Catalysts & Chemical Auxiliary Agents</option>
+                          <option value="146">Daily Chemical Raw Materials</option>
+                          <option value="145">Chemical Reagents</option>
+                          <option value="144">Additives</option>
+                          <option value="143">Organic Intermediates</option>
+                          <option value="142">Paints</option>
+                          <option value="141">Inorganic Chemicals</option>
+                          <option value="140">Paint & Coating</option>
+                          <option value="139">Basic Organic Chemicals</option>
+                          <option value="138">Lab Supplies</option>
+                          <option value="137">Rubber Products</option>
+                          <option value="136">Plastic Products</option>
+                          <option value="135">Rubber Raw Materials</option>
+                          <option value="134">Plastic Raw Materials</option>
+                          <option value="133">Iron</option>
+                          <option value="132">Billets</option>
+                          <option value="131">Wire Mesh</option>
+                          <option value="130">Fiberglass Products</option>
+                          <option value="129">Quartz Products</option>
+                          <option value="128">Tungsten</option>
+                          <option value="127">Titanium</option>
+                          <option value="126">Graphite Products</option>
+                          <option value="125">Carbon</option>
+                          <option value="124">Copper</option>
+                          <option value="123">Ceramic Fiber Products</option>
+                          <option value="122">Metal Scrap</option>
+                          <option value="121">Aluminum</option>
+                          <option value="120">Ore</option>
+                          <option value="119">Non-Metallic Mineral Deposit</option>
+                          <option value="118">Ingots</option>
+                          <option value="117">Steel</option>
+                          <option value="116">Winter Sports</option>
+                          <option value="115">Tennis</option>
+                          <option value="114">Water Sports</option>
+                          <option value="113">Gambling</option>
+                          <option value="112">Amusement Park</option>
+                          <option value="111">Team Sports</option>
+                          <option value="110">Sports Gloves</option>
+                          <option value="109">Musical Instruments</option>
+                          <option value="108">Golf</option>
+                          <option value="107">Sports Safety</option>
+                          <option value="106">Outdoor Sports</option>
+                          <option value="105">Indoor Sports</option>
+                          <option value="104">Fitness & Body Building</option>
+                          <option value="103">Pencil Cases & Bags</option>
+                          <option value="102">Office Cutting Supplies</option>
+                          <option value="100">Board Eraser</option>
+                          <option value="99">Pencils</option>
+                          <option value="98">Notebooks & Writing Pads</option>
+                          <option value="97">Markers & Highlighters</option>
+                          <option value="96">Education Supplies</option>
+                          <option value="95">Drafting Supplies</option>
+                          <option value="94">Correction Supplies</option>
+                          <option value="93">Pens</option>
+                          <option value="92">Office Adhesives & Tapes</option>
+                          <option value="91">Office Binding Supplies</option>
+                          <option value="90">Art Supplies</option>
+                          <option value="89">Office Paper</option>
+                          <option value="88">Desk Organizer</option>
+                          <option value="87">Board</option>
+                          <option value="86">Filing Products</option>
+                          <option value="85">Printer Supplies</option>
+                          <option value="84">Office Equipment</option>
+                          <option value="83">Connectors & Terminals</option>
+                          <option value="82">Generators</option>
+                          <option value="81">Wires, Cables & Cable Assemblies</option>
+                          <option value="80">Batteries</option>
+                          <option value="79">Wiring Accessories</option>
+                          <option value="78">Switches</option>
+                          <option value="77">Children's Clothing</option>
+                          <option value="76">Water Treatment Appliances</option>
+                          <option value="75">Water Heaters</option>
+                          <option value="74">Refrigerators & Freezers</option>
+                          <option value="73">Home Heaters</option>
+                          <option value="72">Cleaning Appliances</option>
+                          <option value="71">Laundry Appliances</option>
+                          <option value="70">Air Conditioning Appliances</option>
+                          <option value="69">Kitchen Appliances</option>
+                          <option value="68">Home Appliance Parts</option>
+                          <option value="67">Hosiery</option>
+                          <option value="66">Stage & Dance Wear</option>
+                          <option value="64">Sewing Supplies</option>
+                          <option value="63">Wedding Apparel & Accessories</option>
+                          <option value="62">Ethnic Clothing</option>
+                          <option value="61">Plus Size Clothing</option>
+                          <option value="60">Costumes</option>
+                          <option value="59">Women�s Clothing</option>
+                          <option value="58">Sleepwear</option>
+                          <option value="56">Dresses</option>
+                          <option value="55">Underwear</option>
+                          <option value="54">Uniforms</option>
+                          <option value="53">Men�s Clothing</option>
+                          <option value="52">Boy�s Clothing</option>
+                          <option value="51">Infant & Toddlers Clothing</option>
+                          <option value="50">Sportswear</option>
+                          <option value="49">Garment Accessories</option>
+                          <option value="48">Wood Furniture</option>
+                          <option value="47">Metal Furniture</option>
+                          <option value="46">Baby Furniture</option>
+                          <option value="45">Bamboo Furniture</option>
+                          <option value="44">Plastic Furniture</option>
+                          <option value="43">Furniture Parts</option>
+                          <option value="42">Antique Furniture</option>
+                          <option value="41">Rattan & Wicker Furniture</option>
+                          <option value="40">Home Furniture</option>
+                          <option value="39">Folding Furniture</option>
+                          <option value="38">Children Furniture</option>
+                          <option value="37">Furniture Hardware</option>
+                          <option value="36">Outdoor Furniture</option>
+                          <option value="35">Commercial Furniture</option>
+                          <option value="34">Furniture</option>
+                          <option value="33">Lights & Lighting</option>
+                          <option value="32">Home & Garden</option>
+                          <option value="31">Construction & Real Estate</option>
+                          <option value="30">Medicine</option>
+                          <option value="29">Medical Devices</option>
+                          <option value="28">Pharmaceuticals</option>
+                          <option value="27">Healthcare Supplement</option>
+                          <option value="26">Tools & Hardware</option>
+                          <option value="25">Fabrication Services</option>
+                          <option value="24">Machinery</option>
+                          <option value="23">Toys & Hobbies</option>
+                          <option value="22">Gifts & Crafts</option>
+                          <option value="21">Sports & Entertainment</option>
+                          <option value="20">Watches</option>
+                          <option value="19">Jewelry</option>
+                          <option value="17">Fragrance & Deodorant</option>
+                          <option value="16">Nail Supplies</option>
+                          <option value="15">Hair Salon Equipment</option>
+                          <option value="14">Bath Supplies</option>
+                          <option value="13">Makeup</option>
+                          <option value="12">Beauty Equipment</option>
+                          <option value="11">Skin Care</option>
+                          <option value="10">Timepieces, Jewelry, Eyewear</option>
+                          <option value="9">Fashion Accessories</option>
+                          <option value="8">Apparel Accessories</option>
+                          <option value="7">Work & Safety Apparel</option>
+                          <option value="6">Footwear & Headwear</option>
+                          <option value="5">Ready To Wear</option>
+                          <option value="4">Telecom & Broadcasting</option>
+                          <option value="3">Power Supply & Distribution</option>
+                          <option value="2">Motors</option>
+                          <option value="1">Optical Fiber, Cable & Wire</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label>Sub Category Name</label>
+                        <select
+                          class="form-control"
+                          name="subcategory_id"
+                          id="subcategory_id"
+                        >
+                          <option value="">Select Sub Category</option>
+                          <option value="1235">Shoes</option>
+                          <option value="1234">Other Arts And Crafts</option>
+                          <option value="1233">Frames And Mouldings</option>
+                          <option value="1232">Umbrellas</option>
+                          <option value="1231">Hookahs</option>
+                          <option value="1230">Household Sundries</option>
+                          <option value="1229">Battery Chargers</option>
+                          <option value="1228">Solar Chargers</option>
+                          <option value="1227">USB Chargers</option>
+                          <option value="1226">Car Chargers</option>
+                          <option value="1225">QI Wireless Chargers</option>
+                          <option value="1224">Cell Phone Unlocking Devices</option>
+                          <option value="1223">Cell Phone Flex Cables</option>
+                          <option value="1222">Cell Phone Housings</option>
+                          <option value="1221">Cell Phone Touch Panels</option>
+                          <option value="1220">Smart Straps</option>
+                          <option value="1219">Activity Trackers</option>
+                          <option value="1218">Smart Accessories</option>
+                          <option value="1217">Smart Wristbands</option>
+                          <option value="1216">Smart Watches</option>
+                          <option value="1215">Other Cell Phones</option>
+                          <option value="1214">Oppo</option>
+                          <option value="1213">Vivo</option>
+                          <option value="1212">Xiaomi</option>
+                          <option value="1211">HuaWei</option>
+                          <option value="1210">3.5MM Earphones</option>
+                          <option value="1209">Sport Neckband Earphones</option>
+                          <option value="1208">TWS Bluetooth Earphones</option>
+                          <option value="1207">Cell Phone Photograph Accessories</option>
+                          <option value="1206">Cell Phone Power Banks</option>
+                          <option value="1205">Cell Phone Car Mounts</option>
+                          <option value="1204">Cell Phone Holders</option>
+                          <option value="1203">Cell Phone Cables</option>
+                          <option value="1202">Cell Phone Screen Protectors</option>
+                          <option value="1201">Cell Phone Cases</option>
+                          <option value="1200">Massage Gel</option>
+                          <option value="1199">Spa Supplies</option>
+                          <option value="1198">Jade Roller</option>
+                          <option value="1197">Wax Strip</option>
+                          <option value="1196">Other Skin Care Tool</option>
+                          <option value="1195">Cotton Pad</option>
+                          <option value="1194">Perfume</option>
+                          <option value="1193">Other Fragrances & Deodorants</option>
+                          <option value="1192">Deodorant & Antiperspirant</option>
+                          <option value="1191">Men's Perfumes</option>
+                          <option value="1190">Men's Bath Supplies</option>
+                          <option value="1189">Men's Shaving & Hair Removal Products</option>
+                          <option value="1188">Men's Skin Care Products</option>
+                          <option value="1187">Baby Bath Supplies</option>
+                          <option value="1186">Baby Skin Care</option>
+                          <option value="1185">Baby Wipes</option>
+                          <option value="1184">Baby Diapers</option>
+                          <option value="1183">Sanitary Napkin</option>
+                          <option value="1182">Panty Liner</option>
+                          <option value="1181">Other Feminine Hygiene Products</option>
+                          <option value="1180">Menstrual Cups</option>
+                          <option value="1179">Breast Massager</option>
+                          <option value="1178">Breast Mask</option>
+                          <option value="1177">Breast Form</option>
+                          <option value="1176">Breast Enhancement Cream</option>
+                          <option value="1175">Paper Napkins & Serviettes</option>
+                          <option value="1174">Other Sanitary Paper</option>
+                          <option value="1173">Facial Tissue</option>
+                          <option value="1172">Diapers/Nappies</option>
+                          <option value="1171">Other Artificial Hair</option>
+                          <option value="1170">Hair Extension</option>
+                          <option value="1169">Fringes</option>
+                          <option value="1168">Chignon</option>
+                          <option value="1167">Hair Treatment</option>
+                          <option value="1166">Hair Styling Products</option>
+                          <option value="1165">Hair Dye</option>
+                          <option value="1164">Hair Conditioner</option>
+                          <option value="1163">Other Oral Hygiene Products</option>
+                          <option value="1162">Mouthwash</option>
+                          <option value="1161">Interdental Brush</option>
+                          <option value="1160">Dental Flosser</option>
+                          <option value="1159">Epilator</option>
+                          <option value="1158">Electric Shavers</option>
+                          <option value="1157">Depilatory Wax</option>
+                          <option value="1156">Aftershave</option>
+                          <option value="1155">Tattoo Grip</option>
+                          <option value="1154">Other Body Art</option>
+                          <option value="1153">Body Painting Supplies</option>
+                          <option value="1152">Airbrush</option>
+                          <option value="1151">Eyebrow Trimmer</option>
+                          <option value="1150">Eye Shadow Applicator</option>
+                          <option value="1149">Cotton Bud</option>
+                          <option value="1148">Cosmetic Puff</option>
+                          <option value="1147">Comb</option>
+                          <option value="1146">Hair Extension Tools</option>
+                          <option value="1145">Bath Salt</option>
+                          <option value="1144">Bath Powder</option>
+                          <option value="1143">Bath Fizzies</option>
+                          <option value="1142">Bath Fizzies</option>
+                          <option value="1141">Bath Beads</option>
+                          <option value="1140">Rice Bag</option>
+                          <option value="1139">Perfume</option>
+                          <option value="1138">Other Fragrances & Deodorants</option>
+                          <option value="1137">Deodorant & Antiperspirant</option>
+                          <option value="1136">Nail Tools</option>
+                          <option value="1135">Nail Painting</option>
+                          <option value="1134">Nail Equipments</option>
+                          <option value="1133">Nail Art</option>
+                          <option value="1132">Candy Packaging</option>
+                          <option value="1131">Cake Boxes</option>
+                          <option value="1130">Gift Wrapping Paper</option>
+                          <option value="1129">Gift Boxes</option>
+                          <option value="1128">Gift Bags</option>
+                          <option value="1127">Paper Medicine Boxes</option>
+                          <option value="1126">Pharmaceutical Glass Bottles</option>
+                          <option value="1125">Plastic Medicine Bottles</option>
+                          <option value="1124">Shoe Box</option>
+                          <option value="1123">Tie Box</option>
+                          <option value="1122">Underwear Bag</option>
+                          <option value="1121">FIBC Bags</option>
+                          <option value="1120">Shipping Boxes</option>
+                          <option value="1119">Woven Bag</option>
+                          <option value="1118">Jerry Can</option>
+                          <option value="1117">Paint Pail</option>
+                          <option value="1116">Cement Bags</option>
+                          <option value="1115">Plastic Box</option>
+                          <option value="1114">Plastic Caps</option>
+                          <option value="1113">Plastic Jars</option>
+                          <option value="1112">Plastic Pallets</option>
+                          <option value="1111">Feed Bag</option>
+                          <option value="1110">Rice Bag</option>
+                          <option value="1108">Egg Trays</option>
+                          <option value="1107">Printing Plate</option>
+                          <option value="1106">Printing Mesh</option>
+                          <option value="1105">Printing Inks</option>
+                          <option value="1104">Other Printing Materials</option>
+                          <option value="1103">Paper & Paperboard Printing</option>
+                          <option value="1102">Other Printing Services</option>
+                          <option value="1101">Metal Printing</option>
+                          <option value="1100">Disk Replication & Printing</option>
+                          <option value="1099">Windows Tablets</option>
+                          <option value="1098">3G/4G Tablets</option>
+                          <option value="1097">Android Tablets</option>
+                          <option value="1096">Dual-SIM Phones</option>
+                          <option value="1095">GSM Phones</option>
+                          <option value="1094">Touchscreen Mobile Phones</option>
+                          <option value="1093">3G Phones</option>
+                          <option value="1092">4G Phones</option>
+                          <option value="1091">Outdoor Lighting</option>
+                          <option value="1090">Lighting Bulbs & Tubes</option>
+                          <option value="1089">Indoor Lighting</option>
+                          <option value="1088">Professional Lighting</option>
+                          <option value="1087">Lighting Accessories</option>
+                          <option value="1086">LED Lighting</option>
+                          <option value="1085">Metal Building Materials Boards</option>
+                          <option value="1084">Tiles & Accessories</option>
+                          <option value="1083">HVAC Systems & Parts Bathroom</option>
+                          <option value="1082">Doors & Windows</option>
+                          <option value="1081">Perfume Bottles</option>
+                          <option value="1080">Pump Bottle</option>
+                          <option value="1079">Aerosol Cans</option>
+                          <option value="1078">Cosmetic Jars</option>
+                          <option value="1077">Women's Jackets & Coats</option>
+                          <option value="1076">Women's Sweaters</option>
+                          <option value="1075">Women's Underwear</option>
+                          <option value="1074">Women's T-Shirts</option>
+                          <option value="1073">Children's Jackets</option>
+                          <option value="1072">Children's Hoodies & Sweatshirts</option>
+                          <option value="1071">Children's Coats</option>
+                          <option value="1070">Children's Clothing Sets</option>
+                          <option value="1069">Men's Underwear</option>
+                          <option value="1068">Men's Hoodies & Sweatshirts</option>
+                          <option value="1067">Men's T-Shirts</option>
+                          <option value="1066">Men's Shirts</option>
+                          <option value="1065">Boy's Clothing Sets</option>
+                          <option value="1064">Boy's T-Shirts</option>
+                          <option value="1063">Boy's Jackets & Coats</option>
+                          <option value="1062">Boy's Shirts</option>
+                          <option value="1061">Monoculars</option>
+                          <option value="1060">Binoculars & Telescopes Accessories</option>
+                          <option value="1059">Camcorder</option>
+                          <option value="1058">USB</option>
+                          <option value="1057">Camera Remotes & Shutter Releases</option>
+                          <option value="1056">Camera Cleaning Equipment & Kits</option>
+                          <option value="1055">Camera Batteries</option>
+                          <option value="1054">Memory Cards & Supports</option>
+                          <option value="1053">Camera Power Adapters</option>
+                          <option value="1052">Camera Chargers</option>
+                          <option value="1051">Camera Bag Accessories</option>
+                          <option value="1050">Other Camera Products</option>
+                          <option value="1049">Camera Viewfinders & Eyecups</option>
+                          <option value="1048">Camera LCD Hoods & Screen Protectors</option>
+                          <option value="1047">Camera Cables, Cords & Connectors</option>
+                          <option value="1046">Action Cam Accessories</option>
+                          <option value="1045">Digital Camera</option>
+                          <option value="1044">Digital Photo Frame</option>
+                          <option value="1043">Memory Cards & Supports</option>
+                          <option value="1042">Camera Viewfinders & Eyecups</option>
+                          <option value="1041">Camera LCD Hoods & Screen Protectors</option>
+                          <option value="1040">Camera Cables, Cords & Connectors</option>
+                          <option value="1039">Other Camera Accessories</option>
+                          <option value="1038">Drones</option>
+                          <option value="1037">Camera Remotes & Shutter Releases</option>
+                          <option value="1036">Camera Cleaning Equipment & Kits</option>
+                          <option value="1035">Camera Batteries</option>
+                          <option value="1034">USB Disk</option>
+                          <option value="1033">Drone Accessories</option>
+                          <option value="1032">Camera Power Adapters</option>
+                          <option value="1031">Camera Chargers</option>
+                          <option value="1030">Camera Bags, Cases & Straps</option>
+                          <option value="1029">Film Cameras</option>
+                          <option value="1028">Film</option>
+                          <option value="1027">Darkroom Supplies</option>
+                          <option value="1026">Other Flash Accessories</option>
+                          <option value="1025">Flash Diffusers</option>
+                          <option value="1024">Sync Cords</option>
+                          <option value="1023">Flash Brackets</option>
+                          <option value="1022">Flashes</option>
+                          <option value="1021">Flash Adapters</option>
+                          <option value="1020">Step Rings</option>
+                          <option value="1019">Lens Caps</option>
+                          <option value="1018">Lenses</option>
+                          <option value="1017">Lens Adapters & Mounts</option>
+                          <option value="1016">Other Lenses & Filters</option>
+                          <option value="1015">Lens Hoods</option>
+                          <option value="1014">Filters</option>
+                          <option value="1013">Lighting & Studio Accessories</option>
+                          <option value="1012">Continuous Lighting</option>
+                          <option value="1011">Light Stands & Booms</option>
+                          <option value="1010">Background Material</option>
+                          <option value="1009">Professional Video Equipment</option>
+                          <option value="1008">Sports & Action Video Camera</option>
+                          <option value="1007">Stabilizers</option>
+                          <option value="1006">Other Accessories</option>
+                          <option value="1005">Shutter</option>
+                          <option value="1004">Tripods</option>
+                          <option value="1003">Selfie Monopods</option>
+                          <option value="1002">Tripod Heads</option>
+                          <option value="1001">Selfie Lights</option>
+                          <option value="1000">Drive</option>
+                          <option value="999">Graphic Card</option>
+                          <option value="998">Power Supply</option>
+                          <option value="997">Cooling Fan & Heatsinks</option>
+                          <option value="996">Hard Disk</option>
+                          <option value="995">USB Products</option>
+                          <option value="994">Computer Case</option>
+                          <option value="993">Memory Card</option>
+                          <option value="992">Keyboard</option>
+                          <option value="991">Mouse</option>
+                          <option value="990">Speaker & Sound Box</option>
+                          <option value="989">USB Flash Disk</option>
+                          <option value="988">Network Card</option>
+                          <option value="987">Modem</option>
+                          <option value="986">Network Switch</option>
+                          <option value="985">Router</option>
+                          <option value="984">Router</option>
+                          <option value="983">Computer Cable</option>
+                          <option value="982">Palm Computer, Pocket PC & PDA</option>
+                          <option value="981">Industrial Computer & Accessories</option>
+                          <option value="980">Laptop</option>
+                          <option value="979">Laptop</option>
+                          <option value="978">Computer</option>
+                          <option value="977">Tablet PC</option>
+                          <option value="976">Fish Ball</option>
+                          <option value="975">Fish</option>
+                          <option value="974">Cuttlefish</option>
+                          <option value="973">Crab</option>
+                          <option value="972">Monosodium Glutamate</option>
+                          <option value="971">Hot Pot Condiments</option>
+                          <option value="970">Fermented Bean Curd</option>
+                          <option value="969">Black Bean Sauce</option>
+                          <option value="968">Goat Meat</option>
+                          <option value="967">Donkey Meat</option>
+                          <option value="966">Camel Meat</option>
+                          <option value="965">Beef</option>
+                          <option value="964">Cakes</option>
+                          <option value="963">Breadcrumbs</option>
+                          <option value="962">Bread</option>
+                          <option value="961">Biscuits</option>
+                          <option value="960">Instant Soup</option>
+                          <option value="959">Instant Rice</option>
+                          <option value="958">Instant Noodles</option>
+                          <option value="957">Hamburger</option>
+                          <option value="956">Cream</option>
+                          <option value="955">Condensed Milk</option>
+                          <option value="954">Cheese</option>
+                          <option value="953">Butter</option>
+                          <option value="952">Flour</option>
+                          <option value="951">Coarse Cereal Products</option>
+                          <option value="950">Chinese Snack</option>
+                          <option value="949">Breakfast Cereal</option>
+                          <option value="948">Fruit & Vegetable Snacks</option>
+                          <option value="947">Egg Snacks</option>
+                          <option value="946">Dairy Snacks</option>
+                          <option value="945">Bean Snacks</option>
+                          <option value="944">Green Tea</option>
+                          <option value="943">Flavor Tea</option>
+                          <option value="942">Blooming Tea</option>
+                          <option value="941">Black Tea</option>
+                          <option value="940">Food Additives</option>
+                          <option value="939">Cocoa Ingredients</option>
+                          <option value="938">Bubble Tea Ingredients</option>
+                          <option value="937">Bubble Tea Ingredients</option>
+                          <option value="936">Bakery Decoration Ingredients</option>
+                          <option value="935">Coffee Drinks</option>
+                          <option value="934">Carbonated Drinks</option>
+                          <option value="933">Cacao Drinks</option>
+                          <option value="932">Bubble Tea Drinks</option>
+                          <option value="931">Baby Juice</option>
+                          <option value="930">Baby Formula</option>
+                          <option value="929">Baby Cereal</option>
+                          <option value="928">Baby Biscuits</option>
+                          <option value="927">Baby Food</option>
+                          <option value="926">Canned Meat</option>
+                          <option value="925">Canned Fruit</option>
+                          <option value="924">Canned Fish</option>
+                          <option value="923">Canned Crustacean</option>
+                          <option value="922">Rice Wine</option>
+                          <option value="921">Beer</option>
+                          <option value="920">Spirits</option>
+                          <option value="919">Wine</option>
+                          <option value="918">Honey Syrup</option>
+                          <option value="917">Honey</option>
+                          <option value="916">Bee Wax</option>
+                          <option value="915">Bee Pollen</option>
+                          <option value="914">Coffee Beans</option>
+                          <option value="913">Whole Bean Coffee</option>
+                          <option value="912">Instant Coffee</option>
+                          <option value="911">Ground Coffee</option>
+                          <option value="910">Liquid Candy</option>
+                          <option value="909">Gum</option>
+                          <option value="908">Chocolate</option>
+                          <option value="907">Candy</option>
+                          <option value="906">Sparkling Water</option>
+                          <option value="905">Sparkling Water</option>
+                          <option value="904">Pure Water</option>
+                          <option value="903">Mineral Water</option>
+                          <option value="902">Organic Fruit</option>
+                          <option value="901">Preserved Fruit</option>
+                          <option value="900">Frozen Fruit</option>
+                          <option value="898">Preserved Vegetables</option>
+                          <option value="897">Frozen Vegetables</option>
+                          <option value="896">Dried Vegetables</option>
+                          <option value="895">Slimming Coffee</option>
+                          <option value="894">Scarves & Shawls</option>
+                          <option value="893">Other Belt Accessories</option>
+                          <option value="892">Belt Chains</option>
+                          <option value="891">Belt Buckles</option>
+                          <option value="890">Other Headwear</option>
+                          <option value="889">Hats & Caps</option>
+                          <option value="888">Hair Accessories</option>
+                          <option value="887">Ear Muffs</option>
+                          <option value="886">Other Ties & Accessories</option>
+                          <option value="885">Bow Ties</option>
+                          <option value="884">Polyester Ties</option>
+                          <option value="883">Silk Ties</option>
+                          <option value="882">Feather Gloves & Mittens</option>
+                          <option value="881">Cotton Gloves & Mittens</option>
+                          <option value="880">Cashmere Gloves & Mittens</option>
+                          <option value="879">Acrylic Gloves & Mittens</option>
+                          <option value="877">Genuine Leather Belts</option>
+                          <option value="876">Fabric Belts</option>
+                          <option value="875">Chain Belts</option>
+                          <option value="874">Beaded Belts</option>
+                          <option value="873">Irrigation&Hydroponics Eqiupment</option>
+                          <option value="872">Cultivated</option>
+                          <option value="871">Truffles</option>
+                          <option value="870">Mushrooms</option>
+                          <option value="869">Fungus & Mushroom</option>
+                          <option value="868">Logs</option>
+                          <option value="867">Bamboo Raw Materials</option>
+                          <option value="866">Fowl & Livestock</option>
+                          <option value="865">Eggs</option>
+                          <option value="864">Agricultural Greenhouses</option>
+                          <option value="863">Aquaculture Equipment</option>
+                          <option value="862">Animal & Poultry Husbandry Equipment</option>
+                          <option value="861">Animal Oil</option>
+                          <option value="860">Plant Oil</option>
+                          <option value="859">Seasoning Oil</option>
+                          <option value="858">Natural Plants</option>
+                          <option value="857">Fresh Cut Flowers</option>
+                          <option value="856">Dried Flowers</option>
+                          <option value="855">Bonsai</option>
+                          <option value="854">Fruit Graft, Seedlings And Rootstocks</option>
+                          <option value="853">Forage Seeds</option>
+                          <option value="852">Bulbs, Seeds And Seedlings</option>
+                          <option value="851">Crop Seeds</option>
+                          <option value="850">Organic Fertilizer</option>
+                          <option value="849">Nitrogen Fertilizer</option>
+                          <option value="848">Compound Fertilizer</option>
+                          <option value="847">Biological Fertilizer</option>
+                          <option value="845">Soybean Meal</option>
+                          <option value="844">Millet</option>
+                          <option value="843">Corn</option>
+                          <option value="842">Buckwheat</option>
+                          <option value="841">Barley</option>
+                          <option value="840">Kidney Beans</option>
+                          <option value="839">Chickpeas</option>
+                          <option value="838">Butter Beans</option>
+                          <option value="837">Broad Beans</option>
+                          <option value="836">Chestnuts</option>
+                          <option value="835">Pumpkin Kernels</option>
+                          <option value="834">Cashew Nuts</option>
+                          <option value="833">Peanuts</option>
+                          <option value="832">Fresh Cabbages</option>
+                          <option value="831">Fresh Burdock</option>
+                          <option value="830">Fresh Broccoli</option>
+                          <option value="829">Fresh Asparagus</option>
+                          <option value="828">Fresh Bananas</option>
+                          <option value="827">Fresh Avocados</option>
+                          <option value="826">Fresh Apricots</option>
+                          <option value="825">Fresh Apples</option>
+                          <option value="824">Paper Product Making Machinery</option>
+                          <option value="823">Paper Processing Machinery</option>
+                          <option value="822">Paper Machinery Parts</option>
+                          <option value="821">Biomass Dryers</option>
+                          <option value="820">Forestry Machinery</option>
+                          <option value="819">Agriculture Machinery Parts</option>
+                          <option value="818">Farm Machinery</option>
+                          <option value="817">Gas Generation Equipment Parts</option>
+                          <option value="816">Gas Generation Equipment</option>
+                          <option value="815">Energy Saving Equipment Parts</option>
+                          <option value="814">Energy Saving Equipment</option>
+                          <option value="813">Home Textile Product Machinery</option>
+                          <option value="812">Apparel Machinery</option>
+                          <option value="811">Apparel Accessories Machinery</option>
+                          <option value="810">Apparel & Textile Machinery Parts</option>
+                          <option value="809">Other Pharmaceutical Machines</option>
+                          <option value="808">Film Coating Machines</option>
+                          <option value="807">Capsule Polisher</option>
+                          <option value="806">Capsule Filling Machines</option>
+                          <option value="805">Industrial Air Conditioners</option>
+                          <option value="804">Ice Machines</option>
+                          <option value="803">Cooling Tower</option>
+                          <option value="802">Cold Room</option>
+                          <option value="801">Plastic Auxiliary Equipment</option>
+                          <option value="800">Plastic Auxiliary Equipment</option>
+                          <option value="799">Plastic & Rubber Machinery Parts</option>
+                          <option value="798">Other Plastic & Rubber Machinery</option>
+                          <option value="797">Laser Heat Treatment</option>
+                          <option value="796">Laser Equipment Parts</option>
+                          <option value="795">Laser Engraving Machines</option>
+                          <option value="794">Laser Cutting Machines</option>
+                          <option value="793">Home Product Making Machinery Parts</option>
+                          <option value="792">Furniture Making Machines</option>
+                          <option value="791">Chopstick Making Machines</option>
+                          <option value="790">Brush Making Machines</option>
+                          <option value="789">Boilers & Parts</option>
+                          <option value="788">Air-Compressors</option>
+                          <option value="787">Air-Compressor Parts</option>
+                          <option value="786">Air Cleaning Equipment</option>
+                          <option value="785">Drying Equipment</option>
+                          <option value="784">Chemical Transportation Equipment</option>
+                          <option value="783">Chemical Storage Equipment</option>
+                          <option value="782">Chemical Machine Parts</option>
+                          <option value="781">Metal Coating Machinery</option>
+                          <option value="780">Metal Casting Machinery</option>
+                          <option value="779">Metal & Metallurgy Machinery Parts</option>
+                          <option value="778">Industrial Furnace</option>
+                          <option value="777">Cranes</option>
+                          <option value="776">Construction Machinery Parts</option>
+                          <option value="775">Construction Lifter</option>
+                          <option value="774">Concrete Machinery</option>
+                          <option value="773">Gear Cutting Machines</option>
+                          <option value="772">Drilling Machines</option>
+                          <option value="771">Boring Machines</option>
+                          <option value="770">Bending Machines</option>
+                          <option value="769">Heat Transfers</option>
+                          <option value="768">Heat Press Machines</option>
+                          <option value="767">Flexographic Printers</option>
+                          <option value="766">Digital Printers</option>
+                          <option value="765">Capping Machines</option>
+                          <option value="764">Boxing Machines</option>
+                          <option value="762">Cement Making Machinery</option>
+                          <option value="761">Building Material Making Machinery Parts</option>
+                          <option value="760">Brick Making Machinery</option>
+                          <option value="759">Board Making Machinery</option>
+                          <option value="758">Dairy Processing Machines</option>
+                          <option value="757">Beverage & Wine Processing Machinery</option>
+                          <option value="756">Bean Product Processing Machinery</option>
+                          <option value="755">Baking Equipment</option>
+                          <option value="754">Other Woodworking Machinery</option>
+                          <option value="753">Mortising Machines</option>
+                          <option value="752">Finger Jointer</option>
+                          <option value="751">Carbonization Stove</option>
+                          <option value="748">Blister Packaging Machines</option>
+                          <option value="747">Auxiliary Packaging Machines</option>
+                          <option value="746">Used Cars</option>
+                          <option value="745">New Cars</option>
+                          <option value="744">Car Cleaning Tool</option>
+                          <option value="743">Car Care Equipment</option>
+                          <option value="742">Auto Transmission Systems</option>
+                          <option value="741">Auto Steering Systems</option>
+                          <option value="740">Auto Drive Systems</option>
+                          <option value="739">Auto Brake Systems</option>
+                          <option value="738">Other Universal Parts</option>
+                          <option value="737">Hose Clamps</option>
+                          <option value="736">Auto Fastener & Clip</option>
+                          <option value="735">Auto Bearing</option>
+                          <option value="734">Other Vehicle Equipment</option>
+                          <option value="733">Car Lifts</option>
+                          <option value="732">Body Repair Equipment</option>
+                          <option value="731">Auto Production Line Equipment</option>
+                          <option value="730">Motorcycle Helmets</option>
+                          <option value="729">Motorcycle Cover</option>
+                          <option value="728">Motorcycle Bags</option>
+                          <option value="727">Grease Guns</option>
+                          <option value="726">Emergency Tools</option>
+                          <option value="725">Diagnostic Tools</option>
+                          <option value="724">Car Jacks</option>
+                          <option value="723">Car Fenders</option>
+                          <option value="722">Car Doors</option>
+                          <option value="721">Car Bumpers</option>
+                          <option value="720">Air Conditioning System</option>
+                          <option value="719">Motorcycle Engines</option>
+                          <option value="718">Motorcycle Electrical System</option>
+                          <option value="717">Motorcycle Brakes</option>
+                          <option value="716">Motorcycle Body Kits</option>
+                          <option value="715">Crank Mechanism</option>
+                          <option value="714">Cooling System</option>
+                          <option value="713">Auto Ignition System</option>
+                          <option value="712">Air Intakes</option>
+                          <option value="711">Auto Motor</option>
+                          <option value="710">Auto Meter</option>
+                          <option value="709">Auto Lighting System</option>
+                          <option value="708">Auto Batteries</option>
+                          <option value="707">Car Mats</option>
+                          <option value="706">Car Gear Knob</option>
+                          <option value="705">Car Freshener</option>
+                          <option value="704">Car Fans</option>
+                          <option value="703">Car Roof Racks</option>
+                          <option value="702">Car Roof Boxes</option>
+                          <option value="701">Car Covers</option>
+                          <option value="700">Car Antenna</option>
+                          <option value="699">Car Amplifiers</option>
+                          <option value="698">Car Amplifiers</option>
+                          <option value="697">Car Alarms</option>
+                          <option value="696">Bluetooth Car Kit</option>
+                          <option value="695">Stairs</option>
+                          <option value="694">Stair Parts</option>
+                          <option value="693">Natural Stone</option>
+                          <option value="692">Artificial Stone</option>
+                          <option value="691">Elevators</option>
+                          <option value="690">Elevator Parts</option>
+                          <option value="689">Windows</option>
+                          <option value="688">Doors</option>
+                          <option value="687">Ceiling Tiles</option>
+                          <option value="686">Ceiling Grid Components</option>
+                          <option value="685">Mosaic Tiles</option>
+                          <option value="684">Tiles</option>
+                          <option value="683">Tile Accessories</option>
+                          <option value="682">Sound Barriers</option>
+                          <option value="681">Other Soundproofing Materials</option>
+                          <option value="680">Acoustic Panels</option>
+                          <option value="679">Kitchen Storage</option>
+                          <option value="678">Kitchen Sinks</option>
+                          <option value="677">Kitchen Cabinets & Accessories</option>
+                          <option value="676">XPS Boards</option>
+                          <option value="675">Other Heat Insulation Materials</option>
+                          <option value="674">EPS Foam Boards</option>
+                          <option value="673">Stoves</option>
+                          <option value="672">Fireplaces</option>
+                          <option value="671">Fireplace Parts</option>
+                          <option value="670">Moving Walks</option>
+                          <option value="669">Escalators</option>
+                          <option value="668">Escalator Parts</option>
+                          <option value="667">Waterproof Membrane</option>
+                          <option value="666">Roofing Felts</option>
+                          <option value="665">Other Waterproofing Materials</option>
+                          <option value="664">Geosynthetic Clay Liner</option>
+                          <option value="663">Sun Sheets & PC Embossed Sheets</option>
+                          <option value="662">Plastic Profiles</option>
+                          <option value="661">Other Plastic Building Materials</option>
+                          <option value="660">Architecture Membrane</option>
+                          <option value="659">Kitchen Faucets</option>
+                          <option value="658">Faucet Accessories</option>
+                          <option value="657">Bibcocks</option>
+                          <option value="656">Bathroom Faucets</option>
+                          <option value="655">Spiders</option>
+                          <option value="654">Other Curtain Wall Accessories</option>
+                          <option value="653">Curtain Walls</option>
+                          <option value="652">Curtain Wall Profiles</option>
+                          <option value="651">Sandwich Panels</option>
+                          <option value="650">Plasterboards</option>
+                          <option value="649">Other Boards</option>
+                          <option value="648">Cement Boards</option>
+                          <option value="647">Scaffoldings</option>
+                          <option value="646">Other Ladders & Scaffoldings</option>
+                          <option value="645">Ladders</option>
+                          <option value="644">Ladder & Scaffolding Parts</option>
+                          <option value="643">Glass Wool Products</option>
+                          <option value="642">Other Fireproofing Materials</option>
+                          <option value="641">Magnesium Oxide Boards</option>
+                          <option value="640">Calcium Silicate Boards</option>
+                          <option value="639">Statues</option>
+                          <option value="638">Pillars</option>
+                          <option value="637">Other Stone Carvings & Sculptures</option>
+                          <option value="636">Other Stone Carvings & Sculptures</option>
+                          <option value="635">Arches</option>
+                          <option value="634">Other Landscaping Stone</option>
+                          <option value="633">Mushroom Stone</option>
+                          <option value="632">Curbstones</option>
+                          <option value="631">Cobbles & Pebbles</option>
+                          <option value="630">Geotextiles</option>
+                          <option value="629">Geomembranes</option>
+                          <option value="628">Geogrids</option>
+                          <option value="627">Geocells</option>
+                          <option value="626">Rubber Flooring</option>
+                          <option value="625">Wood Flooring</option>
+                          <option value="624">Cork Flooring</option>
+                          <option value="623">Anti-Static Flooring</option>
+                          <option value="622">Cement</option>
+                          <option value="621">Building Blocks</option>
+                          <option value="620">Bricks</option>
+                          <option value="619">Aggregate</option>
+                          <option value="618">Finger Jointed Boards</option>
+                          <option value="617">Fibreboards</option>
+                          <option value="616">Decorative High-Pressure Laminates / HPL</option>
+                          <option value="615">Anticorrosive Woods</option>
+                          <option value="614">Bathtubs & Whirlpools</option>
+                          <option value="613">Bathroom Vanities</option>
+                          <option value="612">Bathroom Sinks</option>
+                          <option value="611">Bathroom Accessories</option>
+                          <option value="610">Door & Window Grates</option>
+                          <option value="609">Door & Window Frames</option>
+                          <option value="608">Door & Window Bolts</option>
+                          <option value="607">Automatic Door Operators</option>
+                          <option value="606">Fungicide</option>
+                          <option value="605">Plant Growth Regulator</option>
+                          <option value="604">Rodenticide</option>
+                          <option value="603">Agrochemicals & Pesticides</option>
+                          <option value="602">Pigment</option>
+                          <option value="601">Dyestuffs</option>
+                          <option value="600">Chemical Auxiliary Agent</option>
+                          <option value="599">Catalyst</option>
+                          <option value="598">Oral Care Chemical Raw Materials</option>
+                          <option value="597">Cosmetic Raw Materials</option>
+                          <option value="596">Hair Care Chemical Raw Material</option>
+                          <option value="595">High Purity Reagents</option>
+                          <option value="594">Specific Reagents</option>
+                          <option value="593">General Reagents</option>
+                          <option value="592">Polycarboxylate</option>
+                          <option value="591">Food Additive Products</option>
+                          <option value="590">Feed Additive Products</option>
+                          <option value="589">Feed Additives</option>
+                          <option value="588">Agrochemical Intermediates</option>
+                          <option value="587">Dyestuff Intermediates</option>
+                          <option value="586">Pharmaceutical Intermediates</option>
+                          <option value="585">Syntheses Material Intermediates</option>
+                          <option value="584">Art Paints</option>
+                          <option value="583">Oil Paints</option>
+                          <option value="582">Gouache Paint</option>
+                          <option value="581">Acrylic Paints</option>
+                          <option value="580">Inorganic Salts</option>
+                          <option value="579">Inorganic Acids</option>
+                          <option value="578">Elementary Substances</option>
+                          <option value="577">Alkali</option>
+                          <option value="576">Car Paint</option>
+                          <option value="575">Building Coating</option>
+                          <option value="574">Boat Paint</option>
+                          <option value="573">Appliance Paint</option>
+                          <option value="572">Carbohydrate</option>
+                          <option value="571">Benzene & Derivatives</option>
+                          <option value="570">Amine</option>
+                          <option value="569">Aldehyde & Ketone & Chinone</option>
+                          <option value="568">Flask</option>
+                          <option value="567">Centrifuge Tubes</option>
+                          <option value="566">Buret</option>
+                          <option value="565">Beaker</option>
+                          <option value="564">Household Rubber</option>
+                          <option value="563">Home Appliance Rubber</option>
+                          <option value="562">Automotive Rubber</option>
+                          <option value="561">Agricultural Rubber</option>
+                          <option value="560">Electronic Plastic</option>
+                          <option value="559">Composite Pipes</option>
+                          <option value="558">Automotive Plastic Products</option>
+                          <option value="557">Agricultural Plastic Products</option>
+                          <option value="556">Fluorocarbon Rubber</option>
+                          <option value="555">EPDM</option>
+                          <option value="554">Crepe Rubber</option>
+                          <option value="553">Butyl Rubber</option>
+                          <option value="552">HDPE</option>
+                          <option value="551">EVA</option>
+                          <option value="550">EPS</option>
+                          <option value="549">ABS</option>
+                          <option value="548">Other Iron</option>
+                          <option value="547">Iron Wire</option>
+                          <option value="546">Iron Pipes</option>
+                          <option value="545">Steel Billets</option>
+                          <option value="544">Other Billets</option>
+                          <option value="543">Aluminum Billets</option>
+                          <option value="542">Other Wire Mesh</option>
+                          <option value="541">Iron Wire Mesh</option>
+                          <option value="540">Copper Wire Mesh</option>
+                          <option value="539">Aluminum Wire Mesh</option>
+                          <option value="538">Fiberglass Yarn</option>
+                          <option value="537">Fiberglass Mesh</option>
+                          <option value="536">Fiberglass Mat</option>
+                          <option value="535">Fiberglass Cloth</option>
+                          <option value="534">Quartz Rods</option>
+                          <option value="533">Quartz Plate</option>
+                          <option value="532">Quartz Crucible</option>
+                          <option value="531">Other Quartz Products</option>
+                          <option value="530">Tungsten Pipes</option>
+                          <option value="529">Tungsten Foil</option>
+                          <option value="528">Tungsten Crucibles</option>
+                          <option value="527">Tungsten Bars</option>
+                          <option value="526">Titanium Pipes</option>
+                          <option value="525">Titanium Foil</option>
+                          <option value="524">Titanium Bars</option>
+                          <option value="523">Other Titanium</option>
+                          <option value="522">Graphite Powder</option>
+                          <option value="521">Graphite Mold</option>
+                          <option value="520">Graphite Electrodes</option>
+                          <option value="519">Graphite Crucible</option>
+                          <option value="518">Carbon Fiber Cloth</option>
+                          <option value="517">Carbon Fiber Board/ Panels</option>
+                          <option value="516">Carbon Additive</option>
+                          <option value="515">Carbon Fiber</option>
+                          <option value="514">Copper Powder</option>
+                          <option value="513">Copper Pipes</option>
+                          <option value="512">Copper Pipes</option>
+                          <option value="511">Copper Cathode</option>
+                          <option value="510">Copper Bars</option>
+                          <option value="509">Ceramic Fiber Paper</option>
+                          <option value="508">Ceramic Fiber Cloth</option>
+                          <option value="507">Ceramic Fiber Boards</option>
+                          <option value="506">Ceramic Fiber Blankets</option>
+                          <option value="505">Lead Scrap</option>
+                          <option value="504">Iron Scrap</option>
+                          <option value="503">Copper Scrap</option>
+                          <option value="502">Aluminum Scrap</option>
+                          <option value="501">Aluminum Powder</option>
+                          <option value="500">Aluminum Pipes</option>
+                          <option value="499">Aluminum Coils</option>
+                          <option value="498">Aluminum Bars</option>
+                          <option value="497">Copper Ore</option>
+                          <option value="496">Iron Ore</option>
+                          <option value="494">Chrome Ore</option>
+                          <option value="493">Bauxite Ore</option>
+                          <option value="492">Kaolin</option>
+                          <option value="491">Dolomite</option>
+                          <option value="490">Bentonite</option>
+                          <option value="489">Barite</option>
+                          <option value="488">Copper Ingots</option>
+                          <option value="487">Bismuth Ingots</option>
+                          <option value="486">Antimony Ingots</option>
+                          <option value="485">Aluminum Ingots</option>
+                          <option value="484">Spring Steel</option>
+                          <option value="483">Silicon Steel</option>
+                          <option value="482">Other Steel Products</option>
+                          <option value="481">Bearing Steel</option>
+                          <option value="480">Gymnastics</option>
+                          <option value="479">Gym Equipment</option>
+                          <option value="478">Dance Pads</option>
+                          <option value="477">Boxing</option>
+                          <option value="476">Bowling</option>
+                          <option value="475">Board Game</option>
+                          <option value="474">Badminton</option>
+                          <option value="473">Air Hockey</option>
+                          <option value="472">Flashing Roller</option>
+                          <option value="471">Fishing</option>
+                          <option value="470">Camping & Hiking</option>
+                          <option value="469">Bungee</option>
+                          <option value="468">Helmets</option>
+                          <option value="467">Elbow & Knee Pads</option>
+                          <option value="466">Back Support</option>
+                          <option value="465">Ankle Support</option>
+                          <option value="464">Golf Clubs</option>
+                          <option value="463">Golf Balls</option>
+                          <option value="462">Golf Bags</option>
+                          <option value="461">Club-Making Products</option>
+                          <option value="460">Percussion Instruments</option>
+                          <option value="459">Other Musical Instruments & Accessories</option>
+                          <option value="458">Keyboard Instruments</option>
+                          <option value="457">Brass Instruments</option>
+                          <option value="456">Other Sports Gloves</option>
+                          <option value="455">Racing Gloves</option>
+                          <option value="454">Golf Gloves</option>
+                          <option value="453">Boxing Gloves</option>
+                          <option value="452">Cricket</option>
+                          <option value="451">Cheerleading</option>
+                          <option value="450">Basketball</option>
+                          <option value="449">Baseball & Softball</option>
+                          <option value="448">Playground</option>
+                          <option value="447">Other Amusement Park Products</option>
+                          <option value="446">Climbing Walls</option>
+                          <option value="445">Bumper Cars</option>
+                          <option value="444">Other Gambling Products</option>
+                          <option value="443">Gambling Tables</option>
+                          <option value="442">Dice</option>
+                          <option value="441">Bingo</option>
+                          <option value="440">Swimming & Diving</option>
+                          <option value="439">Surfing</option>
+                          <option value="438">Rowing Boats</option>
+                          <option value="437">Racing Boats</option>
+                          <option value="436">Other Tennis Products</option>
+                          <option value="435">Tennis Balls</option>
+                          <option value="434">Tennis Rackets</option>
+                          <option value="433">Sleds & Snow Tubes</option>
+                          <option value="432">Skiing</option>
+                          <option value="431">Pencil Cases</option>
+                          <option value="430">Pencil Bags</option>
+                          <option value="429">Utility Knife</option>
+                          <option value="428">Paper Scissors</option>
+                          <option value="427">Letter Opener</option>
+                          <option value="426">Whiteboard Eraser</option>
+                          <option value="425">Other Board Eraser</option>
+                          <option value="424">Blackboard Eraser</option>
+                          <option value="423">Standard Pencils</option>
+                          <option value="421">Other Pencils</option>
+                          <option value="420">Mechanical Pencils</option>
+                          <option value="419">Colored Pencils</option>
+                          <option value="418">Spiral Notebooks</option>
+                          <option value="417">Address Books</option>
+                          <option value="416">Notebook</option>
+                          <option value="415">Memo Pad</option>
+                          <option value="414">Whiteboard Marker</option>
+                          <option value="413">Other Markers & Highlighters</option>
+                          <option value="412">Marker Pens</option>
+                          <option value="411">Art Markers</option>
+                          <option value="410">Teaching Resources</option>
+                          <option value="409">Other Educational Supplies</option>
+                          <option value="408">Educational Equipment</option>
+                          <option value="407">Chalk</option>
+                          <option value="406">Rulers</option>
+                          <option value="405">Protractor</option>
+                          <option value="404">Other Drafting Supplies</option>
+                          <option value="403">Math Sets</option>
+                          <option value="402">Animal Erasers</option>
+                          <option value="401">Eraser</option>
+                          <option value="400">Correction Tape</option>
+                          <option value="399">Correction Fluid</option>
+                          <option value="398">Multi Function Pen</option>
+                          <option value="397">Gel Pens</option>
+                          <option value="396">Fountain Pens</option>
+                          <option value="395">Ballpoint Pens</option>
+                          <option value="394">Other Glue</option>
+                          <option value="393">Office Adhesive Tape</option>
+                          <option value="392">Liquid Glue</option>
+                          <option value="391">Glue Stick</option>
+                          <option value="390">Staple Remover</option>
+                          <option value="389">Staple Remover</option>
+                          <option value="388">Pin</option>
+                          <option value="387">Hole Punch</option>
+                          <option value="386">Clips</option>
+                          <option value="385">Other Art Supplies</option>
+                          <option value="384">Crayons</option>
+                          <option value="383">Calligraphy Brushes</option>
+                          <option value="382">Art Sets</option>
+                          <option value="381">Cash Register Paper</option>
+                          <option value="380">Copy Paper</option>
+                          <option value="378">Carbonless Paper</option>
+                          <option value="377">Carbon Paper</option>
+                          <option value="376">Desk Set</option>
+                          <option value="375">Clip Holder & Clip Dispenser</option>
+                          <option value="374">Card Holder & Note Holder</option>
+                          <option value="373">Other Antique Furniture</option>
+                          <option value="372">Bookends</option>
+                          <option value="371">Other Boards For Office & School</option>
+                          <option value="370">Flip Chart</option>
+                          <option value="369">Bulletin Board</option>
+                          <option value="368">Blackboard</option>
+                          <option value="367">Presentation Folder</option>
+                          <option value="366">Report Cover</option>
+                          <option value="365">Ring Binder</option>
+                          <option value="364">Box File</option>
+                          <option value="363">Fuser Roller</option>
+                          <option value="362">Fuser Film Sleeves</option>
+                          <option value="361">Continuous Ink Supply System</option>
+                          <option value="360">Cartridge Chip</option>
+                          <option value="359">Copiers</option>
+                          <option value="358">Conference System</option>
+                          <option value="357">Binding Machine</option>
+                          <option value="356">All-in-One Printers</option>
+                          <option value="355">Terminal Blocks</option>
+                          <option value="354">Other Connectors & Terminals</option>
+                          <option value="353">Connectors</option>
+                          <option value="352">Alligator Clips</option>
+                          <option value="351">Gasoline Generators</option>
+                          <option value="350">Gas Turbine Generators</option>
+                          <option value="349">Diesel Generators</option>
+                          <option value="348">Alternative Energy Generators</option>
+                          <option value="347">Instrumentation Cables</option>
+                          <option value="346">Electrical Wires</option>
+                          <option value="345">Control Cables</option>
+                          <option value="344">Cable Manufacturing Equipment</option>
+                          <option value="343">Other Batteries</option>
+                          <option value="342">Fuel Cells</option>
+                          <option value="341">Button Cell Batteries</option>
+                          <option value="340">Battery Packs</option>
+                          <option value="339">Cable Glands</option>
+                          <option value="338">Cable End Caps</option>
+                          <option value="337">Cable Conduits</option>
+                          <option value="336">Cable Clips</option>
+                          <option value="335">Micro Switches</option>
+                          <option value="334">Limit Switches</option>
+                          <option value="333">Flow Switches</option>
+                          <option value="332">DIP Switches</option>
+                          <option value="331">Dehumidifier Parts</option>
+                          <option value="330">Clothes Dryer Parts</option>
+                          <option value="329">Air Purifier Parts</option>
+                          <option value="328">Air Conditioner Parts</option>
+                          <option value="327">Coffee Makers</option>
+                          <option value="326">Coffee Makers</option>
+                          <option value="325">Coffee Grinders</option>
+                          <option value="324">Blenders</option>
+                          <option value="323">Humidifiers</option>
+                          <option value="322">Dehumidifiers</option>
+                          <option value="321">Air Purifiers</option>
+                          <option value="320">Air Conditioners</option>
+                          <option value="319">Other Laundry Appliances</option>
+                          <option value="318">Garment Steamers</option>
+                          <option value="317">Electric Irons</option>
+                          <option value="316">Clothes Dryers</option>
+                          <option value="315">Vacuum Cleaners</option>
+                          <option value="314">Ultrasonic Cleaners</option>
+                          <option value="313">Steam Cleaners</option>
+                          <option value="312">Other Cleaning Appliances</option>
+                          <option value="311">Kerosene Heaters</option>
+                          <option value="310">Gas Heaters</option>
+                          <option value="309">Electric Heaters</option>
+                          <option value="308">Electric Fireplaces</option>
+                          <option value="307">Refrigerators</option>
+                          <option value="306">Other Refrigerators & Freezers</option>
+                          <option value="305">Ice Makers</option>
+                          <option value="304">Freezers</option>
+                          <option value="303">Other Water Heaters</option>
+                          <option value="302">Heat Pump Water Heaters</option>
+                          <option value="301">Gas Water Heaters</option>
+                          <option value="300">Electric Water Heaters</option>
+                          <option value="299">Water Softeners</option>
+                          <option value="298">Water Filters</option>
+                          <option value="297">Water Dispensers</option>
+                          <option value="296">Other Water Treatment Appliances</option>
+                          <option value="295">Antique Tables</option>
+                          <option value="294">Training Dancewear</option>
+                          <option value="293">Performance Wear</option>
+                          <option value="292">Sewing Threads</option>
+                          <option value="291">Sewing Needles</option>
+                          <option value="290">Other Sewing Supplies</option>
+                          <option value="289">Wedding Accessories</option>
+                          <option value="288">Other Wedding Apparel</option>
+                          <option value="287">Bridesmaid Dresses</option>
+                          <option value="286">Traditional Chinese Clothing</option>
+                          <option value="285">Other Regional Clothing</option>
+                          <option value="284">Islamic Clothing</option>
+                          <option value="283">Asia & Pacific Islands Clothing</option>
+                          <option value="282">Plus Size Shirts & Blouses</option>
+                          <option value="281">Plus Size Underwear</option>
+                          <option value="280">Plus Size Jackets</option>
+                          <option value="279">Plus Size Dress & Skirts</option>
+                          <option value="278">Reenactment Attire</option>
+                          <option value="277">Other Costumes</option>
+                          <option value="276">Mascot</option>
+                          <option value="275">Anime Costumes</option>
+                          <option value="274">Nightgown</option>
+                          <option value="273">Lounge Pants</option>
+                          <option value="272">Bathrobes</option>
+                          <option value="271">Babydoll</option>
+                          <option value="270">Other Hosiery</option>
+                          <option value="269">Leggings</option>
+                          <option value="268">Leg Warmers</option>
+                          <option value="267">Body Stocking</option>
+                          <option value="266">Cocktail Dresses</option>
+                          <option value="265">Club Dresses</option>
+                          <option value="264">Casual Dresses</option>
+                          <option value="263">Career Dresses</option>
+                          <option value="262">Garters Belt</option>
+                          <option value="261">Camisoles</option>
+                          <option value="260">Bras</option>
+                          <option value="259">Bra & Brief Sets</option>
+                          <option value="258">Guard Uniforms</option>
+                          <option value="257">Fireman Uniforms</option>
+                          <option value="256">Bank Uniforms</option>
+                          <option value="255">Airline Uniforms</option>
+                          <option value="254">Baby Bibs</option>
+                          <option value="253">Baby Bibs</option>
+                          <option value="252">Baby Dresses</option>
+                          <option value="251">Baby Coats</option>
+                          <option value="250">Baby Clothing Sets</option>
+                          <option value="249">Baby Bibs</option>
+                          <option value="248">Wood Tables</option>
+                          <option value="247">Wood Chairs</option>
+                          <option value="246">Wood Cabinets</option>
+                          <option value="243">Yoga Wear Sportswear</option>
+                          <option value="231">Metal Tables</option>
+                          <option value="230">Metal Furniture Sets</option>
+                          <option value="229">Metal Chairs</option>
+                          <option value="228">Camping & Hiking Wear</option>
+                          <option value="227">Basketball Wear</option>
+                          <option value="226">Baseball & Softball Wear</option>
+                          <option value="225">Other Baby Furniture</option>
+                          <option value="224">Baby Playpens</option>
+                          <option value="223">American Football Wear</option>
+                          <option value="222">Baby Cribs</option>
+                          <option value="221">Cords</option>
+                          <option value="220">Baby Chairs</option>
+                          <option value="219">Bamboo Cabinets</option>
+                          <option value="218">Bamboo Furniture Sets</option>
+                          <option value="217">Buttons</option>
+                          <option value="216">Bamboo Chairs</option>
+                          <option value="215">Bamboo Beds</option>
+                          <option value="214">Buckles</option>
+                          <option value="213">Plastic Chair</option>
+                          <option value="212">Badges</option>
+                          <option value="211">Plastic Furniture Set</option>
+                          <option value="210">Plastic Stools</option>
+                          <option value="209">Plastic Tables</option>
+                          <option value="208">Other Furniture Parts</option>
+                          <option value="207">Furniture Legs</option>
+                          <option value="206">Furniture Frames</option>
+                          <option value="205">Chair Mechanisms</option>
+                          <option value="204">Antique Cabinets</option>
+                          <option value="203">Antique Chairs</option>
+                          <option value="202">Other Antique Furniture</option>
+                          <option value="201">Antique Tables</option>
+                          <option value="200">Rattan Wicker Sofas</option>
+                          <option value="199">Rattan Wicker Tables</option>
+                          <option value="198">Rattan Wicker Chairs</option>
+                          <option value="197">Rattan Wicker Furniture Sets</option>
+                          <option value="196">Kitchen Furniture</option>
+                          <option value="195">Dining Room Furniture</option>
+                          <option value="194">Bedroom Furniture</option>
+                          <option value="193">Bathroom Furniture</option>
+                          <option value="192">Folding Stools</option>
+                          <option value="191">Folding Furniture Set</option>
+                          <option value="190">Folding Chair</option>
+                          <option value="189">Folding Bed</option>
+                          <option value="188">Children Furniture Sets</option>
+                          <option value="187">Children Chairs</option>
+                          <option value="186">Children Cabinets</option>
+                          <option value="185">Children Beds</option>
+                          <option value="184">Furniture Casters</option>
+                          <option value="183">Furniture Bolts</option>
+                          <option value="182">Draw Slides</option>
+                          <option value="181">Closers</option>
+                          <option value="180">Door Catches & Door</option>
+                          <option value="179">Garden Sofas</option>
+                          <option value="178">Garden Sets</option>
+                          <option value="177">Garden Chairs</option>
+                          <option value="176">Beach Chairs</option>
+                          <option value="175">Industrial Chairs</option>
+                          <option value="174">Hotel Furniture</option>
+                          <option value="173">Hospital Furniture</option>
+                          <option value="172">Hospital Furniture</option>
+                          <option value="171">Bar Furniture</option>
+                          <option value="170">Plastic Furniture</option>
+                          <option value="169">Bedroom Furniture</option>
+                          <option value="168">Wood Furniture</option>
+                          <option value="167">Children Furniture</option>
+                          <option value="166">Baby Furniture</option>
+                          <option value="165">Outdoor Furniture</option>
+                          <option value="164">Metal Furniture</option>
+                          <option value="163">Home Furniture</option>
+                          <option value="162">Furniture Accessories</option>
+                          <option value="161">Commercial Furniture</option>
+                          <option value="160">Bamboo Furniture</option>
+                          <option value="159">Antique Furniture</option>
+                          <option value="158">Gastrointestinal Medicine</option>
+                          <option value="157">Dermatological Medicine</option>
+                          <option value="156">Antiparasitic Medicine</option>
+                          <option value="155">Anti-Infective Medicine</option>
+                          <option value="154">Dental Equipments</option>
+                          <option value="153">Clinical Analytical Instruments</option>
+                          <option value="152">Body Fluid-Processing & Circulation Devices</option>
+                          <option value="151">Immune & Anti-Fatigue</option>
+                          <option value="149">Gastrointestinal Agents</option>
+                          <option value="148">Anesthetic Agents</option>
+                          <option value="147">Electrolyte Balance And Dialysis Agents</option>
+                          <option value="146">Regulation Of Blood System</option>
+                          <option value="145">Immune & Anti-Fatigue</option>
+                          <option value="144">Albumen Powder Vitamins</option>
+                          <option value="143">Power Tool Accessories</option>
+                          <option value="142">Power Tool Accessories</option>
+                          <option value="141">Power Tools</option>
+                          <option value="140">Material Handling Tools</option>
+                          <option value="139">Hardware</option>
+                          <option value="138">Moulds</option>
+                          <option value="137">Machine Tools Accessory</option>
+                          <option value="136">Custom Fabrication Services</option>
+                          <option value="135">Electronic Products Machinery</option>
+                          <option value="134">Building Material Machinery</option>
+                          <option value="133">Agriculture Machinery & Equipment</option>
+                          <option value="132">Action Figure</option>
+                          <option value="131">Toy Guns</option>
+                          <option value="130">Toy Accessories</option>
+                          <option value="129">Pretend Play & Preschool</option>
+                          <option value="128">Outdoor Toys & Structures</option>
+                          <option value="127">Noise Maker</option>
+                          <option value="126">Inflatable Toys</option>
+                          <option value="125">Electronic Toys</option>
+                          <option value="124">Dolls</option>
+                          <option value="123">Candy Toys</option>
+                          <option value="122">Baby Toys</option>
+                          <option value="121">Toy Animal</option>
+                          <option value="120">Solar Toys</option>
+                          <option value="119">Plastic Toys</option>
+                          <option value="118">Other Toys & Hobbies</option>
+                          <option value="117">Light-Up Toys</option>
+                          <option value="116">Glass Marbles</option>
+                          <option value="115">Educational Toys</option>
+                          <option value="114">Classic Toys</option>
+                          <option value="113">Balloons</option>
+                          <option value="112">Glass Marbles</option>
+                          <option value="111">Educational Toys</option>
+                          <option value="110">Wedding Decorations & Gifts</option>
+                          <option value="109">Souvenirs</option>
+                          <option value="108">Pottery & Enamel</option>
+                          <option value="107">Money Boxes</option>
+                          <option value="106">Lacquerware</option>
+                          <option value="105">Key Chains</option>
+                          <option value="104">Holiday Gifts</option>
+                          <option value="103">Flags, Banners & Accessories</option>
+                          <option value="102">Cross Stitch</option>
+                          <option value="101">Crafts</option>
+                          <option value="100">Stickers</option>
+                          <option value="99">Sculptures</option>
+                          <option value="98">Music Boxes</option>
+                          <option value="97">Lanyard</option>
+                          <option value="96">Knitting & Crocheting</option>
+                          <option value="95">Home Decoration</option>
+                          <option value="94">Gift Sets</option>
+                          <option value="93">Festive & Party Supplies</option>
+                          <option value="92">Arts & Crafts Stocks</option>
+                          <option value="91">Art & Collectible</option>
+                          <option value="90">Swimming & Diving</option>
+                          <option value="89">Scooters</option>
+                          <option value="88">Winter Sports</option>
+                          <option value="87">Tennis</option>
+                          <option value="86">Sports Souvenirs</option>
+                          <option value="85">Sports Gloves</option>
+                          <option value="84">Indoor Sports</option>
+                          <option value="83">Gambling</option>
+                          <option value="82">Artificial Grass & Sports Flooring</option>
+                          <option value="81">Gym Equipment</option>
+                          <option value="80">Camping & Hiking</option>
+                          <option value="79">Water Sports</option>
+                          <option value="78">Team Sports</option>
+                          <option value="77">Sports Safety</option>
+                          <option value="76">Outdoor Sports</option>
+                          <option value="75">Musical Instruments</option>
+                          <option value="74">Golf</option>
+                          <option value="73">Fitness & Body Building</option>
+                          <option value="72">Amusement Park</option>
+                          <option value="71">Necklaces</option>
+                          <option value="70">Wristwatches</option>
+                          <option value="69">Quartz Watches</option>
+                          <option value="68">Smart Watch</option>
+                          <option value="67">Nurse Watch</option>
+                          <option value="66">Pocket Watches</option>
+                          <option value="65">Mechanical Watches</option>
+                          <option value="64">Digital Watches</option>
+                          <option value="59">Earrings & Rings</option>
+                          <option value="58">Cuff Link & Tie Clips</option>
+                          <option value="57">Brooches</option>
+                          <option value="56">Bracelets & Bangles</option>
+                          <option value="55">Body Jewelry</option>
+                          <option value="54">Hair Dryer</option>
+                          <option value="53">Hair Curler</option>
+                          <option value="52">Comb</option>
+                          <option value="51">Foundation</option>
+                          <option value="50">Lip Gloss</option>
+                          <option value="49">Eye Shadow</option>
+                          <option value="48">Concealer</option>
+                          <option value="47">Body Glitter</option>
+                          <option value="46">Blush</option>
+                          <option value="45">Facial Tanner</option>
+                          <option value="44">Facial Steamer</option>
+                          <option value="43">Derma Rolling System</option>
+                          <option value="42">Anti-wrinkle Machine</option>
+                          <option value="41">Carrier Oil</option>
+                          <option value="40">Carrier Oil</option>
+                          <option value="39">Body Lotion</option>
+                          <option value="38">Baby Powder / Prickly Heat Powder</option>
+                          <option value="37">Baby Oil</option>
+                          <option value="36">Sports Caps</option>
+                          <option value="34">Down & Winter Apparel</option>
+                          <option value="33">Jeans</option>
+                          <option value="32">Wedding Dresses</option>
+                          <option value="31">Sweater</option>
+                          <option value="30">Mens Clothing</option>
+                          <option value="29">Childrens Apparel</option>
+                          <option value="27">Womens Clothing</option>
+                          <option value="26">Swimwear</option>
+                          <option value="25">Jacket</option>
+                          <option value="24">Underwear</option>
+                          <option value="23">T-Shirt</option>
+                          <option value="22">Sports Wear</option>
+                          <option value="21">Satellite</option>
+                          <option value="20">Radio & TV Broadcasting</option>
+                          <option value="19">Antenna</option>
+                          <option value="18">Communication Module</option>
+                          <option value="17">Fiber Optic Equipment</option>
+                          <option value="15">Voltage Regulator</option>
+                          <option value="14">LED Power Supply</option>
+                          <option value="13">Relay & Contactor</option>
+                          <option value="12">Power Adaptor</option>
+                          <option value="11">Power Transmission & Transformer</option>
+                          <option value="10">Stepper Motor</option>
+                          <option value="9">Asynchronous Motor</option>
+                          <option value="8">DC Motor</option>
+                          <option value="7">AC Motor</option>
+                          <option value="6">Electric Motor</option>
+                          <option value="5">Power Cable</option>
+                          <option value="4">Power Cable</option>
+                          <option value="3">Communication Cable</option>
+                          <option value="2">Optical Fiber</option>
+                          <option value="1">Electric Wire & Cable</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label>Brand Name</label>
+                        <select class="form-control" name="brand_id">
+                          <option value="">Select Brand</option>
+                          <option value="3">Reebok</option>
+                          <option value="2">Sony</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label>Product Name</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="product_name"
+                          required
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label>Model Number</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="model_no"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label>Short Description</label>
+                        <textarea
+                          class="form-control textarea"
+                          name="short_desc"
+                          placeholder="Short Description"
+                        ></textarea>
+                        <input
+                          name="imageEditor"
+                          type="file"
+                          id="upload"
+                          class="hidden"
+                          onChange=""
+                          style="display: none"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label>Long Description</label>
+                        <textarea
+                          class="form-control textarea"
+                          name="long_desc"
+                          placeholder="Long Description"
+                        ></textarea>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Specification</label>
+                        <textarea
+                          class="form-control textarea"
+                          name="specification"
+                          placeholder="Specification"
+                        ></textarea>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label>Minimum Order Quantity</label>
+                        <input
+                          type="number"
+                          step="any"
+                          name="min_order"
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label>Quantity Unit</label>
+                        <select
+                          class="form-control"
+                          name="quantity_unit"
+                          required
+                        >
+                          <option disabled>Select Unit</option>
+                          <option>Acre/Acres</option>
+                          <option>Ampere/Amperes</option>
+                          <option>Bag/Bags</option>
+                          <option>Barrel/Barrels</option>
+                          <option>Blade/Blades</option>
+                          <option>Box/Boxes</option>
+                          <option>Bushel/Bushels</option>
+                          <option>buyer/buyers</option>
+                          <option>Carat/Carats</option>
+                          <option>Carton/Cartons</option>
+                          <option>Case/Cases</option>
+                          <option>Centimeter/Centimeters</option>
+                          <option>Chain/Chains</option>
+                          <option>Combo/Combos</option>
+                          <option>Cubic Centimeter/Cubic Centimeters</option>
+                          <option>Cubic Foot/Cubic Feet</option>
+                          <option>Cubic Inch/Cubic Inches</option>
+                          <option>Cubic Meter/Cubic Meters</option>
+                          <option>Cubic Yard/Cubic Yards</option>
+                          <option>Day/Days</option>
+                          <option>Degrees Celsius</option>
+                          <option>Degrees Fahrenheit</option>
+                          <option>Dozen/Dozens</option>
+                          <option>Dram/Drams</option>
+                          <option>Fluid Ounce/Fluid Ounces</option>
+                          <option>Foot/Feet</option>
+                          <option>Forty-Foot Container</option>
+                          <option>Furlong/Furlongs</option>
+                          <option>Gallon/Gallons</option>
+                          <option>Gill/Gills</option>
+                          <option>Grain/Grains</option>
+                          <option>Gram/Grams</option>
+                          <option>Gross</option>
+                          <option>Hectare/Hectares</option>
+                          <option>Hertz</option>
+                          <option>Hour/Hours</option>
+                          <option>Inch/Inches</option>
+                          <option>Kiloampere/Kiloamperes</option>
+                          <option>Kilogram/Kilograms</option>
+                          <option>Kilohertz</option>
+                          <option>Kilometer/Kilometers</option>
+                          <option>Kiloohm/Kiloohms</option>
+                          <option>Kilovolt/Kilovolts</option>
+                          <option>Kilowatt/Kilowatts</option>
+                          <option>Liter/Liters</option>
+                          <option>Long Ton/Long Tons</option>
+                          <option>Megahertz</option>
+                          <option>Meter/Meters</option>
+                          <option>Metric Ton/Metric Tons</option>
+                          <option>Mile/Miles</option>
+                          <option>Milliampere/Milliamperes</option>
+                          <option>Milligram/Milligrams</option>
+                          <option>Millihertz</option>
+                          <option>Milliliter/Milliliters</option>
+                          <option>Millimeter/Millimeters</option>
+                          <option>Milliohm/Milliohms</option>
+                          <option>Millivolt/Millivolts</option>
+                          <option>Milliwatt/Milliwatts</option>
+                          <option>Month/Months</option>
+                          <option>Nautical Mile/Nautical Miles</option>
+                          <option>Ohm/Ohms</option>
+                          <option>Ounce/Ounces</option>
+                          <option>Pack/Packs</option>
+                          <option>Pair/Pairs</option>
+                          <option>Pallet/Pallets</option>
+                          <option>Parcel/Parcels</option>
+                          <option>Perch/Perches</option>
+                          <option>Piece/Pieces</option>
+                          <option>Pint/Pints</option>
+                          <option>Plant/Plants</option>
+                          <option>Pole/Poles</option>
+                          <option>Pound/Pounds</option>
+                          <option>Quart/Quarts</option>
+                          <option>Quarter/Quarters</option>
+                          <option>Quarter/Quarters</option>
+                          <option>Rod/Rods</option>
+                          <option>Roll/Rolls</option>
+                          <option>Set/Sets</option>
+                          <option>Sheet/Sheets</option>
+                          <option>Short Ton/Short Tons</option>
+                          <option>Square Centimeter/Square Centimeters</option>
+                          <option>Square Foot/Square Feet</option>
+                          <option>Square Inch/Square Inches</option>
+                          <option>Square Meter/Square Meters</option>
+                          <option>Square Mile/Square Miles</option>
+                          <option>Square Yard/Square Yards</option>
+                          <option>Stone/Stones</option>
+                          <option>Strand/Strands</option>
+                          <option>Ton/Tons</option>
+                          <option>Tonne/Tonnes</option>
+                          <option>Tray/Trays</option>
+                          <option>Twenty-Foot Container</option>
+                          <option selected>Unit/Units</option>
+                          <option>Volt/Volts</option>
+                          <option>Watt/Watts</option>
+                          <option>Week/Weeks</option>
+                          <option>Wp</option>
+                          <option>Yard/Yards</option>
+                          <option>Year/Years</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Product Size(If any)</label><br />
+                        <div>
+                          <input type="checkbox" name="sizeof[]" value="1" />
+                          M&nbsp;&nbsp;&nbsp;&nbsp;
+
+                          <input type="checkbox" name="sizeof[]" value="2" />
+                          L&nbsp;&nbsp;&nbsp;&nbsp;
+
+                          <input type="checkbox" name="sizeof[]" value="3" />
+                          XL&nbsp;&nbsp;&nbsp;&nbsp;
+
+                          <input type="checkbox" name="sizeof[]" value="4" />
+                          XXL&nbsp;&nbsp;&nbsp;&nbsp;
+
+                          <input type="checkbox" name="sizeof[]" value="5" />
+                          S&nbsp;&nbsp;&nbsp;&nbsp;
+
+                          <input type="checkbox" name="sizeof[]" value="6" />
+                          28&nbsp;&nbsp;&nbsp;&nbsp;
+
+                          <input type="checkbox" name="sizeof[]" value="7" />
+                          29&nbsp;&nbsp;&nbsp;&nbsp;
+
+                          <input type="checkbox" name="sizeof[]" value="8" />
+                          30&nbsp;&nbsp;&nbsp;&nbsp;
+
+                          <input type="checkbox" name="sizeof[]" value="9" />
+                          31&nbsp;&nbsp;&nbsp;&nbsp;
+
+                          <input type="checkbox" name="sizeof[]" value="10" />
+                          32&nbsp;&nbsp;&nbsp;&nbsp;
+
+                          <input type="checkbox" name="sizeof[]" value="11" />
+                          33&nbsp;&nbsp;&nbsp;&nbsp;
+
+                          <input type="checkbox" name="sizeof[]" value="12" />
+                          34&nbsp;&nbsp;&nbsp;&nbsp;
+
+                          <input type="checkbox" name="sizeof[]" value="13" />
+                          36&nbsp;&nbsp;&nbsp;&nbsp;
+
+                          <input type="checkbox" name="sizeof[]" value="14" />
+                          38&nbsp;&nbsp;&nbsp;&nbsp;
+
+                          <input type="checkbox" name="sizeof[]" value="15" />
+                          6&nbsp;&nbsp;&nbsp;&nbsp;
+
+                          <input type="checkbox" name="sizeof[]" value="16" />
+                          7&nbsp;&nbsp;&nbsp;&nbsp;
+
+                          <input type="checkbox" name="sizeof[]" value="17" />
+                          8&nbsp;&nbsp;&nbsp;&nbsp;
+
+                          <input type="checkbox" name="sizeof[]" value="18" />
+                          9&nbsp;&nbsp;&nbsp;&nbsp;
+
+                          <input type="checkbox" name="sizeof[]" value="19" />
+                          10&nbsp;&nbsp;&nbsp;&nbsp;
+                        </div>
+                      </div>
+                      <hr />
+
+                      <!--<div class="form-group">
+                                            <label>Product Color(If any)</label><br>
+                                            <div>
+                                            
+                                           <input type="checkbox" name="colorof[]" value="1"> WHITE&nbsp;&nbsp;&nbsp;&nbsp;
+                                           
+                                            
+                                           <input type="checkbox" name="colorof[]" value="2"> YELLOW&nbsp;&nbsp;&nbsp;&nbsp;
+                                           
+                                            
+                                           <input type="checkbox" name="colorof[]" value="3"> BLUE&nbsp;&nbsp;&nbsp;&nbsp;
+                                           
+                                            
+                                           <input type="checkbox" name="colorof[]" value="4"> RED&nbsp;&nbsp;&nbsp;&nbsp;
+                                           
+                                            
+                                           <input type="checkbox" name="colorof[]" value="5"> GREEN&nbsp;&nbsp;&nbsp;&nbsp;
+                                           
+                                            
+                                           <input type="checkbox" name="colorof[]" value="6"> BLACK&nbsp;&nbsp;&nbsp;&nbsp;
+                                           
+                                            
+                                           <input type="checkbox" name="colorof[]" value="7"> BROWN&nbsp;&nbsp;&nbsp;&nbsp;
+                                           
+                                            
+                                           <input type="checkbox" name="colorof[]" value="8"> AZURE&nbsp;&nbsp;&nbsp;&nbsp;
+                                           
+                                            
+                                           <input type="checkbox" name="colorof[]" value="9"> IVORY&nbsp;&nbsp;&nbsp;&nbsp;
+                                           
+                                            
+                                           <input type="checkbox" name="colorof[]" value="10"> TEAL&nbsp;&nbsp;&nbsp;&nbsp;
+                                           
+                                            
+                                           <input type="checkbox" name="colorof[]" value="11"> SILVER&nbsp;&nbsp;&nbsp;&nbsp;
+                                           
+                                            
+                                           <input type="checkbox" name="colorof[]" value="12"> PURPLE&nbsp;&nbsp;&nbsp;&nbsp;
+                                           
+                                            
+                                           <input type="checkbox" name="colorof[]" value="13"> NAVY BLUE&nbsp;&nbsp;&nbsp;&nbsp;
+                                           
+                                            
+                                           <input type="checkbox" name="colorof[]" value="14"> GRAY&nbsp;&nbsp;&nbsp;&nbsp;
+                                           
+                                                                                      </div>
+                                          </div><hr>-->
+                      <div id="p_scents">
+                        <div class="inputtr">
+                          <div class="form-group col-md-3">
+                            <label>Product Price</label>
+                            <input
+                              type="text"
+                              step="any"
+                              name="prod_price[]"
+                              class="form-control"
+                              required
+                            />
+                          </div>
+                          <div class="form-group col-md-2">
+                            <label>Min Quantity</label>
+                            <input
+                              type="text"
+                              step="any"
+                              name="prod_qty[]"
+                              class="form-control"
+                              required
+                            />
+                          </div>
+                          <div class="form-group col-md-2">
+                            <label>Max Quantity</label>
+                            <input
+                              type="text"
+                              step="any"
+                              name="price_qty_max[]"
+                              class="form-control"
+                              required
+                            />
+                          </div>
+                          <div class="form-group col-md-3">
+                            <label>Quantity Unit</label>
+                            <select
+                              class="form-control"
+                              name="prod_unit[]"
+                              required
+                            >
+                              <option disabled>Select Unit</option>
+                              <option>Acre/Acres</option>
+                              <option>Ampere/Amperes</option>
+                              <option>Bag/Bags</option>
+                              <option>Barrel/Barrels</option>
+                              <option>Blade/Blades</option>
+                              <option>Box/Boxes</option>
+                              <option>Bushel/Bushels</option>
+                              <option>buyer/buyers</option>
+                              <option>Carat/Carats</option>
+                              <option>Carton/Cartons</option>
+                              <option>Case/Cases</option>
+                              <option>Centimeter/Centimeters</option>
+                              <option>Chain/Chains</option>
+                              <option>Combo/Combos</option>
+                              <option>
+                                Cubic Centimeter/Cubic Centimeters
+                              </option>
+                              <option>Cubic Foot/Cubic Feet</option>
+                              <option>Cubic Inch/Cubic Inches</option>
+                              <option>Cubic Meter/Cubic Meters</option>
+                              <option>Cubic Yard/Cubic Yards</option>
+                              <option>Day/Days</option>
+                              <option>Degrees Celsius</option>
+                              <option>Degrees Fahrenheit</option>
+                              <option>Dozen/Dozens</option>
+                              <option>Dram/Drams</option>
+                              <option>Fluid Ounce/Fluid Ounces</option>
+                              <option>Foot/Feet</option>
+                              <option>Forty-Foot Container</option>
+                              <option>Furlong/Furlongs</option>
+                              <option>Gallon/Gallons</option>
+                              <option>Gill/Gills</option>
+                              <option>Grain/Grains</option>
+                              <option>Gram/Grams</option>
+                              <option>Gross</option>
+                              <option>Hectare/Hectares</option>
+                              <option>Hertz</option>
+                              <option>Hour/Hours</option>
+                              <option>Inch/Inches</option>
+                              <option>Kiloampere/Kiloamperes</option>
+                              <option>Kilogram/Kilograms</option>
+                              <option>Kilohertz</option>
+                              <option>Kilometer/Kilometers</option>
+                              <option>Kiloohm/Kiloohms</option>
+                              <option>Kilovolt/Kilovolts</option>
+                              <option>Kilowatt/Kilowatts</option>
+                              <option>Liter/Liters</option>
+                              <option>Long Ton/Long Tons</option>
+                              <option>Megahertz</option>
+                              <option>Meter/Meters</option>
+                              <option>Metric Ton/Metric Tons</option>
+                              <option>Mile/Miles</option>
+                              <option>Milliampere/Milliamperes</option>
+                              <option>Milligram/Milligrams</option>
+                              <option>Millihertz</option>
+                              <option>Milliliter/Milliliters</option>
+                              <option>Millimeter/Millimeters</option>
+                              <option>Milliohm/Milliohms</option>
+                              <option>Millivolt/Millivolts</option>
+                              <option>Milliwatt/Milliwatts</option>
+                              <option>Month/Months</option>
+                              <option>Nautical Mile/Nautical Miles</option>
+                              <option>Ohm/Ohms</option>
+                              <option>Ounce/Ounces</option>
+                              <option>Pack/Packs</option>
+                              <option>Pair/Pairs</option>
+                              <option>Pallet/Pallets</option>
+                              <option>Parcel/Parcels</option>
+                              <option>Perch/Perches</option>
+                              <option>Piece/Pieces</option>
+                              <option>Pint/Pints</option>
+                              <option>Plant/Plants</option>
+                              <option>Pole/Poles</option>
+                              <option>Pound/Pounds</option>
+                              <option>Quart/Quarts</option>
+                              <option>Quarter/Quarters</option>
+                              <option>Quarter/Quarters</option>
+                              <option>Rod/Rods</option>
+                              <option>Roll/Rolls</option>
+                              <option>Set/Sets</option>
+                              <option>Sheet/Sheets</option>
+                              <option>Short Ton/Short Tons</option>
+                              <option>
+                                Square Centimeter/Square Centimeters
+                              </option>
+                              <option>Square Foot/Square Feet</option>
+                              <option>Square Inch/Square Inches</option>
+                              <option>Square Meter/Square Meters</option>
+                              <option>Square Mile/Square Miles</option>
+                              <option>Square Yard/Square Yards</option>
+                              <option>Stone/Stones</option>
+                              <option>Strand/Strands</option>
+                              <option>Ton/Tons</option>
+                              <option>Tonne/Tonnes</option>
+                              <option>Tray/Trays</option>
+                              <option>Twenty-Foot Container</option>
+                              <option selected>Unit/Units</option>
+                              <option>Volt/Volts</option>
+                              <option>Watt/Watts</option>
+                              <option>Week/Weeks</option>
+                              <option>Wp</option>
+                              <option>Yard/Yards</option>
+                              <option>Year/Years</option>
+                            </select>
+                          </div>
+                          <div class="form-group col-md-2">
+                            <label>&nbsp;&nbsp;&nbsp;&nbsp;</label><br />
+                            <button
+                              type="button"
+                              id="addScnt"
+                              onClick="addrow('inputtr');"
+                              class="btn btn-danger"
+                            >
+                              Add More
+                            </button>
+                          </div>
+                          <hr />
+                        </div>
+                      </div>
+
+                      <!-- have to add this -->
+
+                      <div class="form-group">
+                        <label>Product Photo</label>
+                        <input
+                          type="file"
+                          name="image"
+                          id="image"
+                          onChange="PreviewImage();"
+                          class="form-control"
+                          accept="image/x-png,image/gif,image/jpeg,image/jpg"
+                          required
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label></label>
+                        <img
+                          id="uploadPreview"
+                          style="
+                            width: 233px;
+                            height: 132px;
+                            border: 1px solid #83888c;
+                            background-color: #ffffff;
+                          "
+                        />
+                      </div>
+
+                      <div id="p_scents2">
+                        <div class="inputtr2">
+                          <div class="form-group col-md-6">
+                            <label>Select Color</label>
+                            <select
+                              name="colorof[]"
+                              class="form-control"
+                              required
+                            >
+                              <option value="0">default Color</option>
+
+                              <option value="1">WHITE</option>
+
+                              <option value="2">YELLOW</option>
+
+                              <option value="3">BLUE</option>
+
+                              <option value="4">RED</option>
+
+                              <option value="5">GREEN</option>
+
+                              <option value="6">BLACK</option>
+
+                              <option value="7">BROWN</option>
+
+                              <option value="8">AZURE</option>
+
+                              <option value="9">IVORY</option>
+
+                              <option value="10">TEAL</option>
+
+                              <option value="11">SILVER</option>
+
+                              <option value="12">PURPLE</option>
+
+                              <option value="13">NAVY BLUE</option>
+
+                              <option value="14">GRAY</option>
+                            </select>
+                          </div>
+                          <div class="form-group col-md-4">
+                            <label>Upload Multiple Gallery Images</label>
+                            <input type="file" id="photo_gallery_1" class="form-control" name="photo_gallery_1" accept="image/x-png,image/gif,image/jpeg,image/jpg" />
+                          </div>
+                          <div class="form-group col-md-2">
+                            <label>&nbsp;&nbsp;&nbsp;&nbsp;</label><br />
+                            <button
+                              type="button"
+                              id="addScnt"
+                              onClick="addrow2('inputtr');"
+                              class="btn btn-danger"
+                            >
+                              Add More
+                            </button>
+                          </div>
+                          <hr />
+                        </div>
+                      </div>
+                      <div class="form-group col-md-12">
+                        <select name="stock" class="form-control" required>
+                          <option value="">Select Stock</option>
+                          <option value="Instock">Instock</option>
+                          <option value="Out of Stock">Out of Stock</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-12">
+                        <input
+                          type="submit"
+                          value="Submit"
+                          class="btn btn-primary"
+                          name="submit"
+                        />
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <footer class="main-footer">
+        <strong
+          ><strong
+            >Copyright &copy; 2020
+            <a href="javascript:;"
+              >"Grofusion - Grow Your Business & Complete Business Directory"</a
+            >.</strong
+          >
+          All rights reserved.</strong
+        >
+      </footer>
+      <div class="control-sidebar-bg"></div>
+    </div>
+    <script src="{% static 'main/js/jquery-2.2.3.min.js' %}"></script>
+    <script src="{% static 'main/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'main/js/app.min.js' %}"></script>
+    <script src="{% static 'main/js/demo.js' %}"></script>
+    <script src="{% static 'main/js/bootstrap-datepicker.js' %}"></script>
+    <script src="{% static 'main/js/jquery.multiselect.js' %}"></script>
+    <script>
+      $(function () {
+        $("#datepicker").datepicker({
+          format: "dd-mm-yyyy",
+          autoclose: true,
+        });
+      });
+      function PreviewImage() {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("image").files[0]);
+        oFReader.onload = function (oFREvent) {
+          document.getElementById("uploadPreview").src = oFREvent.target.result;
+        };
+      }
+      /////////////////////////////////////Get City by State////////////////////////
+      function getCity(val) {
+        $.ajax({
+          type: "post",
+          url: "getvalue.php",
+          data: { state: val },
+          success: function (response) {
+            // alert(response);
+            $("#city").html(response);
+          },
+        });
+      }
+
+      //////////////////////////////////Filter Service/////////////
+      function getcatAndSubcat(val) {
+        $.ajax({
+          type: "post",
+          url: "getvalue.php",
+          data: { category_id: val },
+          success: function (response) {
+            //alert(response);
+            $("#category_id").html(response);
+          },
+        });
+        $.ajax({
+          type: "post",
+          url: "getvalue.php",
+          data: { subcategory_id: val },
+          success: function (response) {
+            //alert(response);
+            $("#subcategory_id").html(response);
+          },
+        });
+      }
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.5.1/tinymce.min.js"
+      integrity="sha512-rCSG4Ab3y6N79xYzoaCqt9gMHR0T9US5O5iBuB25LtIQ1Hsv3jKjREwEMeud8q7KRgPtxhmJesa1c9pl6upZvg=="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(document).ready(function () {
+        tinymce.init({
+          selector: ".textarea",
+          paste_data_images: true,
+          height: 600,
+          plugins: [
+            "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+            "searchreplace wordcount visualblocks visualchars code fullscreen",
+            "insertdatetime media nonbreaking save table contextmenu directionality",
+            "emoticons template paste textcolor colorpicker textpattern",
+          ],
+          toolbar1:
+            "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+          toolbar2: "print preview media | forecolor backcolor emoticons",
+          image_advtab: true,
+          file_picker_callback: function (callback, value, meta) {
+            if (meta.filetype == "image") {
+              $("#upload").trigger("click");
+              $("#upload").on("change", function () {
+                var file = this.files[0];
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                  callback(e.target.result, {
+                    alt: "",
+                  });
+                };
+                reader.readAsDataURL(file);
+              });
+            }
+          },
+          templates: [
+            {
+              title: "Test template 1",
+              content: "Test 1",
+            },
+            {
+              title: "Test template 2",
+              content: "Test 2",
+            },
+          ],
+        });
+      });
+    </script>
+    <script type="text/javascript">
+      var i = 1;
+      var k = 1;
+
+      function addrow() {
+        var scntDiv = document.getElementById("p_scents");
+
+        if (i <= 5) {
+          var j = i + 1;
+
+          $(
+            '<div class="row" id=' +
+              j +
+              ' style="margin-top: 14px;"><div class="form-group col-md-3"><label>Product Price</label><input type="text" step="any" name="prod_price[]" class="form-control" required></div><div class="form-group col-md-2"><label>Min Quantity</label><input type="text" step="any" name="prod_qty[]" class="form-control" required></div><div class="form-group col-md-2"><label>Max Quantity</label><input type="text" name="price_qty_max[]" class="form-control" required></div><div class="form-group col-md-3"><label>Quantity Unit</label><select class="form-control" name="prod_unit[]" required><option disabled>Select Unit</option><option>Acre/Acres</option><option>Ampere/Amperes</option><option>Bag/Bags</option><option>Barrel/Barrels</option><option>Blade/Blades</option><option>Box/Boxes</option><option>Bushel/Bushels</option><option>buyer/buyers</option><option>Carat/Carats</option><option>Carton/Cartons</option><option>Case/Cases</option><option>Centimeter/Centimeters</option><option>Chain/Chains</option><option>Combo/Combos</option><option>Cubic Centimeter/Cubic Centimeters</option><option>Cubic Foot/Cubic Feet</option><option>Cubic Inch/Cubic Inches</option><option>Cubic Meter/Cubic Meters</option><option>Cubic Yard/Cubic Yards</option><option>Day/Days</option><option>Degrees Celsius</option><option>Degrees Fahrenheit</option><option>Dozen/Dozens</option><option>Dram/Drams</option><option>Fluid Ounce/Fluid Ounces</option><option>Foot/Feet</option><option>Forty-Foot Container</option><option>Furlong/Furlongs</option><option>Gallon/Gallons</option><option>Gill/Gills</option><option>Grain/Grains</option><option>Gram/Grams</option><option>Gross</option><option>Hectare/Hectares</option><option>Hertz</option><option>Hour/Hours</option><option>Inch/Inches</option><option>Kiloampere/Kiloamperes</option><option>Kilogram/Kilograms</option><option>Kilohertz</option><option>Kilometer/Kilometers</option><option>Kiloohm/Kiloohms</option><option>Kilovolt/Kilovolts</option><option>Kilowatt/Kilowatts</option><option>Liter/Liters</option><option>Long Ton/Long Tons</option><option>Megahertz</option><option>Meter/Meters</option><option>Metric Ton/Metric Tons</option><option>Mile/Miles</option><option>Milliampere/Milliamperes</option><option>Milligram/Milligrams</option><option>Millihertz</option><option>Milliliter/Milliliters</option><option>Millimeter/Millimeters</option><option>Milliohm/Milliohms</option><option>Millivolt/Millivolts</option><option>Milliwatt/Milliwatts</option><option>Month/Months</option><option>Nautical Mile/Nautical Miles</option><option>Ohm/Ohms</option><option>Ounce/Ounces</option><option>Pack/Packs</option><option>Pair/Pairs</option><option>Pallet/Pallets</option><option>Parcel/Parcels</option><option>Perch/Perches</option><option>Piece/Pieces</option><option>Pint/Pints</option><option>Plant/Plants</option><option>Pole/Poles</option><option>Pound/Pounds</option><option>Quart/Quarts</option><option>Quarter/Quarters</option><option>Quarter/Quarters</option><option>Rod/Rods</option><option>Roll/Rolls</option><option>Set/Sets</option><option>Sheet/Sheets</option><option>Short Ton/Short Tons</option><option>Square Centimeter/Square Centimeters</option><option>Square Foot/Square Feet</option><option>Square Inch/Square Inches</option><option>Square Meter/Square Meters</option><option>Square Mile/Square Miles</option><option>Square Yard/Square Yards</option><option>Stone/Stones</option><option>Strand/Strands</option><option>Ton/Tons</option><option>Tonne/Tonnes</option><option>Tray/Trays</option><option>Twenty-Foot Container</option><option selected>Unit/Units</option><option>Volt/Volts</option><option>Watt/Watts</option><option>Week/Weeks</option><option>Wp</option><option>Yard/Yards</option><option>Year/Years</option> </select></div><div class="col-md-2"><label for="exampleInputPassword1">&nbsp;</label><br><button class="btn btn-danger" id="remScnt" onclick=\'removerow(' +
+              j +
+              ")'>Delete</button></div></div>"
+          ).appendTo(scntDiv);
+
+          i++;
+        }
+        return false;
+      }
+
+      function removerow(trName) {
+        var d = document.getElementById("p_scents");
+
+        var oldtr = document.getElementById(trName);
+
+        d.removeChild(oldtr);
+
+        i--;
+      }
+
+      function addrow2() {
+        var scntDiv = document.getElementById("p_scents2");
+
+        if (k <= 100) {
+          var j = k + 1;
+
+          $(
+            '<div class="row" id=' +
+              j +
+              ' style="margin-top: 14px;"><div class="form-group col-md-6"><label>Select Color</label><select name="colorof[]" class="form-control" required><option value="0">default Color</option><option value="1"> WHITE</option><option value="2"> YELLOW</option><option value="3"> BLUE</option><option value="4"> RED</option><option value="5"> GREEN</option><option value="6"> BLACK</option><option value="7"> BROWN</option><option value="8"> AZURE</option><option value="9"> IVORY</option><option value="10"> TEAL</option><option value="11"> SILVER</option><option value="12"> PURPLE</option><option value="13"> NAVY BLUE</option><option value="14"> GRAY</option></select></div><div class="form-group col-md-4"><label>Upload Multiple Gallery Images</label><input type="file" class="form-control" name="photo_gallery_' + j +'" required accept="image/x-png,image/gif,image/jpeg,image/jpg"></div><div class="col-md-2"><label for="exampleInputPassword1">&nbsp;</label><br><button class="btn btn-danger" id="remScnt2" onclick=\'removerow2(' +
+              j +
+              ")'>Delete</button></div></div>"
+          ).appendTo(scntDiv);
+
+          k++;
+        }
+        return false;
+      }
+
+      function removerow2(trName) {
+        var d = document.getElementById("p_scents2");
+
+        var oldtr = document.getElementById(trName);
+
+        d.removeChild(oldtr);
+
+        k--;
+      }
+    </script>
+    <script type="text/javascript">
+      $(".remove").click(function () {
+        var id2 = $(this).parents("div").attr("id");
+        if (confirm("Are you sure to remove this record ?")) {
+          $.ajax({
+            type: "POST",
+            url: "getvalue.php",
+            data: { delId: id2 },
+            cache: true,
+            error: function () {
+              alert("Something is wrong");
+            },
+            success: function (data) {
+              // alert(data);
+              $("#" + id2).remove();
+              alert("Record removed successfully");
+            },
+          });
+        }
+      });
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script>
+      $("select").select2();
+    </script>
+
+  </body>
+</html>

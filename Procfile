@@ -1,0 +1,1 @@
+web: gunicorn grofusion.wsgi --log-file -

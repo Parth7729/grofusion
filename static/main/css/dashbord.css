@@ -1,0 +1,221 @@
+@charset "utf-8";
+/* CSS Document */
+@import url('../../../use.fontawesome.com/releases/v5.7.2/css/all.css');
+
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #e7eaed;
+    border-radius: 0;
+}
+.card .card-description {
+    margin-bottom: .875rem; font-weight: 400; color: #76838f;}
+.profile-header {
+	height: 150px;
+	width: 100%;
+	position: relative;
+}
+
+.cover-image {
+	height: 150px;
+	width: 100%;
+	overflow: hidden;
+}
+
+
+
+.user-image {
+	position: absolute;
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+	bottom: -50%;
+	left: 50%;
+	/* top: 50%; */
+	transform: translate(-50%, -50%);
+	z-index: 5;
+}
+
+.user-image img {
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+	top: -40px;
+	border: 5px solid #777;
+}
+
+.profile-card .profile-content {
+	padding: 50px 20px 30px 20px;
+}
+
+
+
+.profile-card .profile-name {
+	font-size: 1.2rem;
+	color: #3249b9;
+	font-weight: 600;
+	text-align: center;
+}
+
+.profile-card .profile-designation {
+	font-size: 13px;
+	color: #777;
+	text-align: center;
+}
+
+.profile-card .profile-description {
+	padding: 10px;
+	font-size: 13px;
+	color: #777;
+	margin: 5px 0px;
+	background-color: #F1F2F3;
+	border-radius: 5px;
+}
+
+.profile-card ul.profile-info-list {
+	padding: 0;
+	margin: 10px 0;
+	list-style: none;
+	font-size: 1rem;
+	font-weight: 500;
+	color: #777;
+}
+
+
+
+
+.profile-card ul.profile-info-list a {
+	text-decoration: none;
+	color:inherit;
+}
+#dashboard{ width:100%;}
+#dashboard p{ font-size:15px;}
+.profile-card a.profile-info-list-item:last-clide{ border-bottom:none;}
+
+.profile-card a.profile-info-list-item {
+	margin:0px 0 0 0;
+	padding:15px 0;
+	font-size:15px;
+	border-bottom:1px #000 solid;
+	background-color: #F1F2F3;
+	display: block;
+	 -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+
+}
+
+.profile-card a.profile-info-list-item:hover {
+    background-color: #9E9E9E;
+    color: white;
+	 -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+	
+}
+
+
+.profile-card a.profile-info-list-item  i {
+	padding: 10px;
+	
+}
+
+ul.about {list-style:none; color:black;padding:0; font-size:15px;}
+li.about-items {
+    margin: 10px;
+    font-size: 0.9rem;
+    /* font-family: sans-serif; */
+    /* font-weight: 400; */
+}
+
+
+
+li.about-items i {
+color:#607d8b;
+}
+
+span.about-item-name { width: 100px; display: inline-flex; margin-left: 10px; font-size:15px;}
+span.about-item-detail {
+    display: inline-flex;
+    width: calc(100% - 160px); font-size:14px;
+}
+span.about-item-detail > button{
+  margin-right: 10px;
+}
+
+.btn.btn-icon {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+}
+.btn.btn-rounded {
+    border-radius: 50px;
+}
+
+a.about-item-edit {
+    float: right;
+} 
+
+
+#my-enquiry { width:100%;}
+#my-enquiry .card-header{padding: 0 !important;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				height: 150px;
+				position: relative;
+				display: flex;
+				justify-content: center;
+				text-align:center;
+			}
+#my-enquiry .card{
+				overflow: hidden;
+				border:0 !important;
+				width: 300px;
+				box-shadow: 0px 0px 15px 1px;
+				-webkit-box-shadow:0px 0px 15px 1px;
+			}
+#my-enquiry .profile_pic{ position: absolute; bottom: -50px; height:112px; width:112px; padding:5px; border:2px solid #f39c12; border-radius:50%;}
+#my-enquiry .card-body{	padding-top:10px ;}
+#my-enquiry .profile_pic img{ height:100px;	width:100px; border-radius:50%;}
+#my-enquiry .name_container{ display: flex; justify-content: center;}
+#my-enquiry .name{ font-size:18px;	font-weight:700; color:gray; position: relative;}
+
+#my-enquiry .address{ display:flex;	justify-content:center; font-size:12px;	color:gray;}
+#my-enquiry .follow{
+				padding-top: 20px;
+				display: flex;
+				justify-content: center;
+			}
+#my-enquiry .follow_btn{
+				background: #2196F3;
+				padding: 7px;
+				color: #fff;
+				border-radius: 12px;
+				cursor: pointer;
+			}
+
+#my-enquiry .follow_btn::before{
+				font-family: "Font Awesome 5 Free";
+				content: "\f234";
+				font-weight: 600;
+				margin-right: 5px;
+			
+
+
+			}
+#my-enquiry .follow_btn:hover{	background: #f39c12;}
+#my-enquiry .info_container{padding-top:20px;display:flex;justify-content:space-around; flex-direction:row; padding-bottom:10px;}
+#my-enquiry .info{	display: flex; flex-direction: column;}
+#my-enquiry .info p:first-child{ margin-bottom:0; font-size:12px; color:gray;text-transform:uppercase;text-align:center;			}
+#my-enquiry .info p:last-child{ margin-bottom: 0; font-size:15px; font-weight: 700; color: gray; text-transform: uppercase; text-align: center;}
+#my-enquiry .card-footer{ padding: 0 !important; background: #fff !important; display: flex; border-top: 0 !important;}
+#my-enquiry .message{display:flex; justify-content:center; padding: 10px; width: 50%; text-transform: uppercase; background: #f39c12; color: #fff; cursor: pointer; border-bottom-right-radius: calc(0.25rem - 1px);}
+#my-enquiry .message::before{ font-family: "Font Awesome 5 Free"; content: "\f27a"; font-weight: 600; margin-right: 5px;}
+#my-enquiry .view_profile{ display: flex; justify-content: center; padding: 10px; width: 50%; text-transform: uppercase; background: #e74c3c; color: #fff; cursor: pointer; border-bottom-left-radius: calc(0.25rem - 1px);}
