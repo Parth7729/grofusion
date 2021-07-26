@@ -18,6 +18,7 @@ from .thread import ProductEnquiryThread, EnquiryThread
 
 def add_product_database():
     path = (r'C:\Users\PARTH\Desktop\Grofusion\static\main\xlsx\grofusion.xlsx')
+    path = ('static/main/xlsx/grofusion.xlsx')
     workbook = openpyxl.load_workbook(path)
 
     worksheet = workbook['main category']
