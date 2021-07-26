@@ -226,7 +226,7 @@ def product_enquiry(request):
         user = product.supplier
         user_name = user.name
 
-        recipient = ['guptaparth716@gmail.com']
+        recipient = ['guptaparth716@gmail.com', 'sureshjaiswal1077@gmail.com']
 
         if PremiumUser.objects.filter(user=user).exists():
             recipient.append(user.email)
@@ -254,7 +254,7 @@ def contact(request):
         subject = request.POST['subject']
         message = request.POST['message']
 
-        recipient = ['guptaparth716@gmail.com']
+        recipient = ['guptaparth716@gmail.com', 'sureshjaiswal1077@gmail.com']
 
         EnquiryThread(name, email, subject, message, recipient).start()
         messages.success(request, 'Your enquiry has been sent, we will respond to you shortly...')
